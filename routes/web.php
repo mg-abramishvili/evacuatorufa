@@ -14,8 +14,31 @@ Route::get('/evakuator-dlya-kommercheskogo-transporta', function () {
     return view('page', compact('page'));
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::post('_leads', [App\Http\Controllers\LeadController::class, 'store']);
 
+// ADMIN
+Route::get('admin', function () {
+    return view('layouts.admin');
+})->middleware(['auth']);
+
+Route::prefix("admin")->middleware(['auth'])->group(function() {
+    Route::get('{any}', function () {
+        return view('layouts.admin');
+    })->where('any', '.*');
+});
+
+// ADMIN SETTINGS
+Route::get('_admin/settings', [App\Http\Controllers\Admin\SettingController::class, 'index'])->middleware(['auth']);
+Route::post('_admin/settings', [App\Http\Controllers\Admin\SettingController::class, 'update'])->middleware(['auth']);
+
+// ADMIN LEADS
+Route::get('_admin/leads', [App\Http\Controllers\Admin\LeadController::class, 'index'])->middleware(['auth']);
+Route::get('_admin/lead/{id}', [App\Http\Controllers\Admin\LeadController::class, 'lead'])->middleware(['auth']);
+Route::put('_admin/lead/{id}/update', [App\Http\Controllers\Admin\LeadController::class, 'update'])->middleware(['auth']);
+Route::delete('_admin/lead/{id}/delete', [App\Http\Controllers\Admin\LeadController::class, 'delete'])->middleware(['auth']);
+
+// ADMIN FILE UPLOAD
+Route::post('_admin/file/upload', [App\Http\Controllers\Admin\FileController::class, 'store']);
+
+// AUTH
 require __DIR__.'/auth.php';

@@ -11,10 +11,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
 
-        <link rel="stylesheet" href="/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/css/style.css">
-
-        @vite('resources/css/app.css')
+        @vite('resources/css/front.css')
     </head>
     <body>
         <header>
@@ -90,7 +87,7 @@
         </footer>
 
         <script src="/js/bootstrap.min.js"></script>
-        @vite('resources/js/app.js')
+        @vite('resources/js/front.js')
 
         <script>
             const freeEvacuators = ['2', '3', '4']
