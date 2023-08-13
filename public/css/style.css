@@ -292,6 +292,9 @@ footer .title-header {
     padding: 10px 30px;
 }
 
+.bottom-text {
+    background-color: #e1efff;
+}
 .bottom-text .title-header {
     margin-bottom: 20px;
 }
