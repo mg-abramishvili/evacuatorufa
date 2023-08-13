@@ -1,12 +1,38 @@
 {
-  "resources/css/app.css": {
-    "file": "assets/app-4edc362c.css",
-    "isEntry": true,
-    "src": "resources/css/app.css"
+  "__plugin-vue_export-helper-91b188c1.js": {
+    "file": "assets/_plugin-vue_export-helper-91b188c1.js"
   },
-  "resources/js/app.js": {
-    "file": "assets/app-4a08c204.js",
+  "resources/css/admin.css": {
+    "file": "assets/admin-4438e6ec.css",
     "isEntry": true,
-    "src": "resources/js/app.js"
+    "src": "resources/css/admin.css"
+  },
+  "resources/css/front.css": {
+    "file": "assets/front-5113ece9.css",
+    "isEntry": true,
+    "src": "resources/css/front.css"
+  },
+  "resources/js/admin.css": {
+    "file": "assets/admin-e0bcb809.css",
+    "src": "resources/js/admin.css"
+  },
+  "resources/js/admin.js": {
+    "css": [
+      "assets/admin-e0bcb809.css"
+    ],
+    "file": "assets/admin-735ef656.js",
+    "imports": [
+      "__plugin-vue_export-helper-91b188c1.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/admin.js"
+  },
+  "resources/js/front.js": {
+    "file": "assets/front-2ba8c965.js",
+    "imports": [
+      "__plugin-vue_export-helper-91b188c1.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/front.js"
   }
 }

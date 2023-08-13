@@ -1,0 +1,1 @@
+import{_ as c,o as t,c as a,a as n}from"./_plugin-vue_export-helper-91b188c1.js";const o={};function r(_,p){return t(),a("h1",null,"create lead")}const s=c(o,[["render",r]]),e=n({});e.component("create-lead",s);e.mount("#front");
