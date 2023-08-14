@@ -12,6 +12,11 @@ import 'sweetalert2/dist/sweetalert2.min.css'
 // CKEditor
 import CKEditor from '@ckeditor/ckeditor5-vue'
 
-const app = createApp(App)
+import dayjs from 'dayjs'
+import 'dayjs/locale/ru'
 
-app.use(router).use(VueSweetalert2).use(CKEditor).mount('#app')
+const app = createApp(App).use(router).use(VueSweetalert2).use(CKEditor)
+
+app.config.globalProperties.$dayjs = dayjs
+
+app.mount('#admin')

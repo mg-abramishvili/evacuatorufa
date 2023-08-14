@@ -11,7 +11,7 @@
     </head>
     <body class="admin_panel" style="min-height: 100vh;">
         @auth
-            <div id="app"></div>
+            <div id="admin"></div>
         @endauth
 
         @guest

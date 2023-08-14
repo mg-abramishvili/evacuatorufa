@@ -3,24 +3,24 @@
     "file": "assets/_plugin-vue_export-helper-91b188c1.js"
   },
   "resources/css/admin.css": {
-    "file": "assets/admin-4438e6ec.css",
+    "file": "assets/admin-4d55b4ac.css",
     "isEntry": true,
     "src": "resources/css/admin.css"
   },
   "resources/css/front.css": {
-    "file": "assets/front-5113ece9.css",
+    "file": "assets/front-1d84008a.css",
     "isEntry": true,
     "src": "resources/css/front.css"
   },
   "resources/js/admin.css": {
-    "file": "assets/admin-e0bcb809.css",
+    "file": "assets/admin-bf67244c.css",
     "src": "resources/js/admin.css"
   },
   "resources/js/admin.js": {
     "css": [
-      "assets/admin-e0bcb809.css"
+      "assets/admin-bf67244c.css"
     ],
-    "file": "assets/admin-735ef656.js",
+    "file": "assets/admin-18377998.js",
     "imports": [
       "__plugin-vue_export-helper-91b188c1.js"
     ],
