@@ -11,7 +11,8 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
-
+        
+        <link rel="stylesheet" href="/css/flickity.css">
         @vite('resources/css/front.css')
     </head>
     <body>
@@ -90,7 +91,7 @@
         </div>
 
         <script src="/js/bootstrap.min.js"></script>
-        <script src="/js/swiper-bundle.min.js"></script>
+        <script src="/js/flickity.pkgd.min.js"></script>
         @vite('resources/js/front.js')
 
         <script>
@@ -100,5 +101,7 @@
 
             document.getElementById('freeEvauators').innerText = freeEvacuators[randomNumber] + ' эвакуатора'
         </script>
+
+        @yield('scripts')
     </body>
 </html>

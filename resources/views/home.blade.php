@@ -140,6 +140,8 @@
 
     @include('mainform')
 
+    @include('gallery')
+
     <div class="bottom-text p1">
         <div class="container">
             <h5 class="title-header">Эвакуатор в Уфе круглосуточно</h5>
@@ -149,31 +151,6 @@
             <p>Чем мы отличаемся от других компаний? Долгий опыт, профессионализм и надежность наших эвакуаторов. У нас работают специалисты своего дела, а это значит, что вы не разочаруетесь, сделав вызов эвакуатора у нас!</p>
 
             <p>Вызвать эвакуатор круглосуточно в компании «Авто ангел» – правильный выбор, вы получите только лучшие услуги эвакуации и недорого! Если у вас возникнут вопросы, позвоните по телефону в любое время дня и ночи и проконсультируйтесь у наших специалистов. Они помогут вам определиться с выбором услуги. Обращайтесь, будем рады помочь!</p>
-        </div>
-    </div>
-
-    <div class="gallery">
-        <div class="container">
-            <!-- Slider main container -->
-            <div class="swiper">
-            <!-- Additional required wrapper -->
-            <div class="swiper-wrapper">
-                <!-- Slides -->
-                <div class="swiper-slide">Slide 1</div>
-                <div class="swiper-slide">Slide 2</div>
-                <div class="swiper-slide">Slide 3</div>
-                ...
-            </div>
-            <!-- If we need pagination -->
-            <div class="swiper-pagination"></div>
-
-            <!-- If we need navigation buttons -->
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-
-            <!-- If we need scrollbar -->
-            <div class="swiper-scrollbar"></div>
-            </div>
         </div>
     </div>
 

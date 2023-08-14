@@ -1,5 +1,4 @@
 @import 'bootstrap.min.css';
-@import 'swiper-bundle.min.css';
 
 body {
     color: #222;
@@ -303,4 +302,24 @@ footer .title-header {
 }
 .bottom-text p:last-child {
     margin-bottom: 0;
+}
+
+.gallery {
+    background-color: #e1efff;
+}
+.gallery .title-header {
+    margin-bottom: 20px;
+    text-align: center;
+}
+.gallery .carousel-cell {
+    width: 33.3333%;
+    height: 300px;
+    margin: 0;
+    padding: 0 5px;
+}
+.gallery .carousel-cell-image {
+    background-size: cover;
+    background-position: center center;
+    height: 100%;
+    border: 6px solid #81b4ec;
 }
