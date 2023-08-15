@@ -14,10 +14,13 @@ class PageSeeder extends Seeder
         DB::table('pages')->insert([
             [
                 'id' => 1,
-                'name' => 'Эвакуатор для коммерческого транспорта',
-                'slug' => 'evakuator-dlya-kommercheskogo-transporta',
-                'meta_title' => 'Эвакуатор для коммерческого транспорта',
-                'meta_description' => 'Краткое описание для Эвакуатор для коммерческого транспорта',
+                'name' => 'Эвакуатор для легковой машины',
+                'slug' => 'evakuator-dlya-legkovoy-mashiny',
+                'price' => 2000,
+                'order' => 1,
+                'icon' => '/img/legk.png',
+                'meta_title' => 'Эвакуатор для легковой машины',
+                'meta_description' => 'Краткое описание для Эвакуатор для легковой машины',
                 'desc1_title' => 'Заголовок для блока с текстом',
                 'desc1_text' => 'Текст для блока с текстом',
             ],

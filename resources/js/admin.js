@@ -14,6 +14,8 @@ import CKEditor from '@ckeditor/ckeditor5-vue'
 
 import dayjs from 'dayjs'
 import 'dayjs/locale/ru'
+import utc from 'dayjs/plugin/utc'
+dayjs.extend(utc)
 
 const app = createApp(App).use(router).use(VueSweetalert2).use(CKEditor)
 

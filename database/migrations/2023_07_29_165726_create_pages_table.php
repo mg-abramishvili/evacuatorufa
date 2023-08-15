@@ -12,6 +12,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug');
+            $table->string('icon');
+            $table->integer('price');
+            $table->integer('order')->default(99);
             $table->string('meta_title');
             $table->string('meta_description');
             $table->string('desc1_title')->nullable();

@@ -5,11 +5,13 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Page;
 
 Route::get('/', function () {
-    return view('home');
+    $pages = Page::orderBy('order', 'asc')->get();
+
+    return view('home', compact('pages'));
 });
 
-Route::get('/evakuator-dlya-kommercheskogo-transporta', function () {
-    $page = Page::where('slug', 'evakuator-dlya-kommercheskogo-transporta')->first();
+Route::get('/p/{slug}', function ($slug) {
+    $page = Page::where('slug', $slug)->first();
 
     return view('page', compact('page'));
 });

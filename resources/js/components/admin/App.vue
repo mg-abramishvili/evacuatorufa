@@ -4,7 +4,7 @@
             <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
                 <div class="position-sticky pt-3">
                     <div class="px-3 mb-4">
-                        <img src="/img/logo-w.svg" alt="Migrant Mobile">
+                        <p class="mb-0" style="color: rgb(255, 255, 255);">FuckingMachines.ru</p>
                     </div>
                     <ul class="nav flex-column">
                         <li class="nav-separator">Заказы</li>

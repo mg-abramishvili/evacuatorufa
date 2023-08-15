@@ -3,5 +3,9 @@
 @section('description', $page->meta_description)
 
 @section('content')
-    <h1>{{ $page->name }}</h1>
+    <div class="container">
+        <h1>{{ $page->name }}</h1>
+    </div>
+
+    @include('faq')
 @endsection

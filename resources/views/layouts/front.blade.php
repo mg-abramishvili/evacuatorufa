@@ -55,10 +55,6 @@
                 </nav>
 
                 @yield('content')
-
-                @if(!Request::is('/'))
-                    @include('faq')
-                @endif
             </main>
 
             <footer class="p1">

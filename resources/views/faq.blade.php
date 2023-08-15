@@ -1,4 +1,4 @@
-<div class="faq">
+<div class="faq p1">
     <div class="container">
         <h5 class="title-header">Вопрос-ответ</h5>
         

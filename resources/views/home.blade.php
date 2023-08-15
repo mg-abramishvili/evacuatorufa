@@ -26,7 +26,22 @@
             <h2 class="title-header">Эвакуатор по Уфе, РБ и РФ</h2>
 
             <div class="row">
-                <div class="col-12 col-lg-4">
+                @foreach($pages as $page)
+                    <div class="col-12 col-lg-4">
+                        <div class="services-item">
+                            <img src="{{ $page->icon }}" alt="{{ $page->name }}">
+                            <h3 class="services-item-name">{{ $page->name }}</h3>
+
+                            <span>от {{ $page->price }} руб.</span>
+
+                            <div class="services-item-actions">
+                                <a href="tel:+79053529797">Вызвать</a>
+                                <a href="/p/{{ $page->slug }}">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+                <!-- <div class="col-12 col-lg-4">
                     <div class="services-item">
                         <img src="/img/legk.png" alt="Эвакуатор для легковой машины">
                         <h3 class="services-item-name">Эвакуатор для <br>легковой машины</h3>
@@ -109,7 +124,7 @@
                         </div>
 
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

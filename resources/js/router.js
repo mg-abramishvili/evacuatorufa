@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import Home from './components/admin/Home.vue'
-import Leads from './components/admin/Leads.vue'
+import Leads from './components/admin/leads/Index.vue'
 
 const routes = [
     {
