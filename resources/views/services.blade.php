@@ -4,7 +4,7 @@
 
         <div class="row">
             @foreach($pages as $page)
-                <div class="col-12 col-lg-4">
+                <div class="col-6 col-lg-4">
                     <div class="services-item">
                         <img src="{{ $page->icon }}" alt="{{ $page->name }}">
                         <h3 class="services-item-name">{{ $page->name }}</h3>

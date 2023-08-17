@@ -264,17 +264,30 @@ header {
     padding: 20px;
 }
 .services-item-name {
-    font-size: 19px;
+    font-size: 17px;
     font-weight: 700;
     text-transform: uppercase;
     text-align: center;
     margin: 0;
+    height: 60px;
+    overflow: hidden;
+}
+@media (min-width: 992px) {
+    .services-item-name {
+        height: auto;
+        font-size: 19px;
+    }
 }
 .services-item img {
     width: auto;
-    height: 200px;
+    height: 100px;
     display: block;
     margin: 0 auto;
+}
+@media (min-width: 992px) {
+    .services-item img {
+        height: 200px;
+    }
 }
 .services-item span {
     display: block;
@@ -289,19 +302,31 @@ header {
     justify-content: space-between;
 }
 .services-item-actions a {
-    width: calc(50% - 7px);
+    width: 100%;
     color: #222;
-    padding: 8px 10px;
+    padding: 4px 10px;
     text-align: center;
     text-decoration: none;
     font-size: 16px;
     border: 1px solid;
     border-radius: 8px;
 }
+@media (min-width: 992px) {
+    .services-item-actions a {
+        width: calc(50% - 7px);
+        padding: 8px 10px;
+    }
+}
 .services-item-actions a:nth-child(1) {
     background-color: #fc0;
     border-color: #fc0;
     font-weight: 700;
+    margin-bottom: 5px;
+}
+@media (min-width: 992px) {
+    .services-item-actions a:nth-child(1) {
+        margin-bottom: 0;
+    }
 }
 .services-item-actions a:nth-child(2) {
     border-color: #ccc;
@@ -612,9 +637,15 @@ footer .title-header {
     background: url('/img/main.jpg');
     background-size: cover;
     background-position: center bottom;
-    padding: 80px 0;
+    padding-top: 90px;
+    padding-bottom: 40px;
     position: relative;
     z-index: 1;
+}
+@media (min-width: 992px) {
+    .page-hero {
+        padding: 80px 0;
+    }
 }
 .page-hero:before {
     content: '';
@@ -629,9 +660,15 @@ footer .title-header {
     z-index: -1;
 }
 .page-hero .title-header {
-    font-size: 50px;
+    font-size: 30px;
     text-transform: none;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+}
+@media (min-width: 992px) {
+    .page-hero .title-header {
+        font-size: 50px;
+        margin-bottom: 40px;
+    }
 }
 .page-hero .title-header i {
     font-style: normal;
