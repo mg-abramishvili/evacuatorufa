@@ -47,6 +47,10 @@ Route::prefix("admin")->middleware(['auth'])->group(function() {
 Route::get('_admin/settings', [App\Http\Controllers\Admin\SettingController::class, 'index'])->middleware(['auth']);
 Route::post('_admin/settings', [App\Http\Controllers\Admin\SettingController::class, 'update'])->middleware(['auth']);
 
+// ADMIN SETTINGS
+Route::get('_admin/homepage', [App\Http\Controllers\Admin\HomePageController::class, 'index'])->middleware(['auth']);
+Route::post('_admin/homepage', [App\Http\Controllers\Admin\HomePageController::class, 'update'])->middleware(['auth']);
+
 // ADMIN LEADS
 Route::get('_admin/leads', [App\Http\Controllers\Admin\LeadController::class, 'index'])->middleware(['auth']);
 Route::get('_admin/lead/{id}', [App\Http\Controllers\Admin\LeadController::class, 'lead'])->middleware(['auth']);
