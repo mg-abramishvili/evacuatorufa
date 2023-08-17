@@ -17,9 +17,28 @@
     </head>
     <body>
         <div id="front">
-            <header>
-                
-            </header>
+            @if(Request::is('/'))
+                <header>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 col-lg-6">
+                                <div class="header-logo">
+                                    <a href="/">
+                                        Служба Эвакуации <strong>г. УФА</strong>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="header-tel">
+                                    <a href="{{ $settings->tel1 }}">+7 @php echo substr($settings->tel1, 0, 3) . ' ' . substr($settings->tel1, 3, 3) . '-' . substr($settings->tel1, 6, 2)  . '-' . substr($settings->tel1, 8, 2) @endphp</a>
+                                    <a href="{{ $settings->tel2 }}">+7 @php echo substr($settings->tel2, 0, 3) . ' ' . substr($settings->tel2, 3, 3) . '-' . substr($settings->tel2, 6, 2)  . '-' . substr($settings->tel2, 8, 2) @endphp</a>
+                                    <span>Круглосуточно</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+            @endif
 
             <main>
                 @if(Request::is('/'))
