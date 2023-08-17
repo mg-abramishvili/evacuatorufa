@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
             HomePageSeeder::class,
             SettingSeeder::class,
             AdvantageSeeder::class,
+            QuestionSeeder::class,
         ]);
     }
 }

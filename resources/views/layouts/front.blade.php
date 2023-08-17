@@ -60,21 +60,31 @@
             <footer class="p1">
                 <div class="container">
                     <div class="row">
-                        <div class="col-12 col-lg-8 footer-left">
+                        <div class="col-12 col-lg-4 footer-left">
                             <h5 class="title-header">Контакты</h5>
 
                             <p>© Служба эвакуации "Авто Ангел"</p>
 
                             @if($settings->tel1 && $settings->tel2)
-                                <p>
+                                <p class="fw-bold">
                                     +7 @php echo substr($settings->tel1, 0, 3) . ' ' . substr($settings->tel1, 3, 3) . '-' . substr($settings->tel1, 6, 2)  . '-' . substr($settings->tel1, 8, 2) @endphp,
                                     +7 @php echo substr($settings->tel2, 0, 3) . ' ' . substr($settings->tel2, 3, 3) . '-' . substr($settings->tel2, 6, 2)  . '-' . substr($settings->tel2, 8, 2) @endphp
                                 </p>
                             @endif
 
-                            <p>Режим работы: круглосуточно и без выходных!</p>
+                            <p>Круглосуточно и без выходных!</p>
                             <p>E-mail: 2999797@mail.ru</p>
                             <p>г. Уфа, ул. Степана Злобина, д. 6</p>
+                        </div>
+                        <div class="col-12 col-lg-4 footer-center">
+                            <h5 class="title-header">Эвакуация</h5>
+                            <ul>
+                                @foreach($pages as $page)
+                                    <li>
+                                        <a href="/p/{{ $page->slug }}">{{ $page->name }}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
                         </div>
                         <div class="col-12 col-lg-4 footer-right">
                             <h5 class="title-header">Информация</h5>

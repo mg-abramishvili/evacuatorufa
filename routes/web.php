@@ -6,23 +6,28 @@ use App\Models\Page;
 use App\Models\HomePage;
 use App\Models\Setting;
 use App\Models\Advantage;
+use App\Models\Question;
 
 Route::get('/', function () {
     $settings = Setting::find(1);
     $homePage = HomePage::find(1);
     $advantages = Advantage::all();
+    $questions = Question::all();
 
     $pages = Page::orderBy('order', 'asc')->get();
 
-    return view('home', compact('settings', 'homePage', 'pages', 'advantages'));
+    return view('home', compact('settings', 'homePage', 'pages', 'advantages', 'questions'));
 });
 
 Route::get('/p/{slug}', function ($slug) {
     $settings = Setting::find(1);
-    $page = Page::where('slug', $slug)->first();
     $advantages = Advantage::all();
+    $questions = Question::all();
+    $pages = Page::orderBy('order', 'asc')->get();
+    
+    $page = Page::where('slug', $slug)->first();
 
-    return view('page', compact('settings', 'page', 'advantages'));
+    return view('page', compact('settings', 'page', 'pages', 'advantages', 'questions'));
 });
 
 Route::post('_leads', [App\Http\Controllers\LeadController::class, 'store']);

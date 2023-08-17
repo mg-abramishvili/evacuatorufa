@@ -37,6 +37,10 @@ body {
 .navbar-ev {
     background-color: #c4e1ff;
     padding: 10px 0;
+    position: sticky;
+    top: 0;
+    margin-top: -1px;
+    z-index: 999;
 }
 .navbar-ev ul {
     width: 100%;
@@ -87,6 +91,9 @@ body {
     color: #096fd4;
 }
 
+.intro {
+    background-color: #fff;
+}
 .intro .title-header {
     margin-bottom: 15px;
 }
@@ -122,13 +129,13 @@ body {
 }
 
 .services .title-header {
-    margin-bottom: 25px;
+    margin-bottom: 30px;
     text-align: center;
 }
 .services-item {
     background-color: #fff;
     box-shadow: 0 0 16px rgba(0, 0, 0, 0.07);
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     padding: 20px;
 }
 .services-item-name {
@@ -214,6 +221,14 @@ footer .title-header {
 .footer-social-icons li a img {
     width: auto;
     height: 40px;
+}
+.footer-center ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.footer-center ul li a {
+    color: #337ab7;
 }
 
 .mini-form {
@@ -358,4 +373,42 @@ footer .title-header {
 .map-map {
     position: relative;
     height: 450px;
+}
+
+.faq .title-header {
+    margin-bottom: 30px;
+}
+
+.page-hero {
+    background: url('/img/main.jpg');
+    background-size: cover;
+    background-position: center bottom;
+    padding: 80px 0;
+    position: relative;
+    z-index: 1;
+}
+.page-hero:before {
+    content: '';
+    background-color: rgba(218, 238, 255, 0.9);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.page-hero .title-header {
+    font-size: 50px;
+    text-transform: none;
+    margin-bottom: 40px;
+}
+.page-hero .title-header i {
+    font-style: normal;
+    background-color: #fc0;
+}
+
+.page-block {
+    background-color: #fff;
 }

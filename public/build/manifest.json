@@ -1,14 +1,14 @@
 {
-  "__plugin-vue_export-helper-16d21c8d.js": {
-    "file": "assets/_plugin-vue_export-helper-16d21c8d.js"
+  "__plugin-vue_export-helper-22fdd37f.js": {
+    "file": "assets/_plugin-vue_export-helper-22fdd37f.js"
   },
   "resources/css/admin.css": {
-    "file": "assets/admin-4d55b4ac.css",
+    "file": "assets/admin-556bec06.css",
     "isEntry": true,
     "src": "resources/css/admin.css"
   },
   "resources/css/front.css": {
-    "file": "assets/front-e74e553a.css",
+    "file": "assets/front-15bf37dc.css",
     "isEntry": true,
     "src": "resources/css/front.css"
   },
@@ -20,17 +20,17 @@
     "css": [
       "assets/admin-bf67244c.css"
     ],
-    "file": "assets/admin-8522feac.js",
+    "file": "assets/admin-bfbdb9ff.js",
     "imports": [
-      "__plugin-vue_export-helper-16d21c8d.js"
+      "__plugin-vue_export-helper-22fdd37f.js"
     ],
     "isEntry": true,
     "src": "resources/js/admin.js"
   },
   "resources/js/front.js": {
-    "file": "assets/front-4f8c447b.js",
+    "file": "assets/front-8ea6fe49.js",
     "imports": [
-      "__plugin-vue_export-helper-16d21c8d.js"
+      "__plugin-vue_export-helper-22fdd37f.js"
     ],
     "isEntry": true,
     "src": "resources/js/front.js"

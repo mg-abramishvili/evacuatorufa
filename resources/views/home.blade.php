@@ -21,44 +21,9 @@
         </div>
     </div>
 
-    <div class="services">
-        <div class="container">
-            <h2 class="title-header">Эвакуатор по Уфе, РБ и РФ</h2>
+    @include('services')
 
-            <div class="row">
-                @foreach($pages as $page)
-                    <div class="col-12 col-lg-4">
-                        <div class="services-item">
-                            <img src="{{ $page->icon }}" alt="{{ $page->name }}">
-                            <h3 class="services-item-name">{{ $page->name }}</h3>
-
-                            <span>от {{ $page->price }} руб.</span>
-
-                            <div class="services-item-actions">
-                                <a href="tel:+7{{$settings->tel2}}">Вызвать</a>
-                                <a href="/p/{{ $page->slug }}">Подробнее</a>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </div>
-
-    <div class="mini-form p2">
-        <div class="container">
-            <div class="mini-form-inner">
-                <h5 class="title-header">Сломалась машина и нужен эвакуатор?</h5>
-                <p>Закажи эвакуатор прямо сейчас и получи скидку 10%</p>
-                <a href="tel:+7{{$settings->tel2}}">+7 @php echo substr($settings->tel2, 0, 3) . ' ' . substr($settings->tel2, 3, 3) . '-' . substr($settings->tel2, 6, 2)  . '-' . substr($settings->tel2, 8, 2) @endphp</a>
-
-                <div class="mini-form-form">
-                    <input type="text" class="form-control" placeholder="Введите телефон для связи">
-                    <button class="btn btn-primary">Получить скидку 10%</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('miniform')
 
     <div class="why p1">
         <div class="container">
