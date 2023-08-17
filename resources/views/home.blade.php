@@ -72,6 +72,10 @@
 
     @include('gallery')
 
+    @include('map')
+
+    @include('advantages')
+
     <div class="bottom-text p1">
         <div class="container">
             <h5 class="title-header">{{ $homePage->text3_header }}</h5>

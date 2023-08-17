@@ -5,20 +5,24 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Page;
 use App\Models\HomePage;
 use App\Models\Setting;
+use App\Models\Advantage;
 
 Route::get('/', function () {
     $settings = Setting::find(1);
     $homePage = HomePage::find(1);
+    $advantages = Advantage::all();
+
     $pages = Page::orderBy('order', 'asc')->get();
 
-    return view('home', compact('settings', 'homePage', 'pages'));
+    return view('home', compact('settings', 'homePage', 'pages', 'advantages'));
 });
 
 Route::get('/p/{slug}', function ($slug) {
     $settings = Setting::find(1);
     $page = Page::where('slug', $slug)->first();
+    $advantages = Advantage::all();
 
-    return view('page', compact('settings', 'page'));
+    return view('page', compact('settings', 'page', 'advantages'));
 });
 
 Route::post('_leads', [App\Http\Controllers\LeadController::class, 'store']);

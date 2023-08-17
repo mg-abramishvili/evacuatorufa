@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
             PageSeeder::class,
             HomePageSeeder::class,
             SettingSeeder::class,
+            AdvantageSeeder::class,
         ]);
     }
 }
