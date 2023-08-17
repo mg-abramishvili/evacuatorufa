@@ -5,6 +5,7 @@ import Leads from './components/admin/leads/Index.vue'
 import Pages from './components/admin/pages/Index.vue'
 import PageMaster from './components/admin/pages/Master.vue'
 import HomePage from './components/admin/homepage/Edit.vue'
+import Settings from './components/admin/settings/Edit.vue'
 
 const routes = [
     {
@@ -31,6 +32,11 @@ const routes = [
         path: '/admin/homepage',
         name: 'HomePage',
         component: HomePage
+    },
+    {
+        path: '/admin/settings',
+        name: 'Settings',
+        component: Settings
     },
 ];
 
