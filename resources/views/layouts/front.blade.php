@@ -64,7 +64,14 @@
                             <h5 class="title-header">Контакты</h5>
 
                             <p>© Служба эвакуации "Авто Ангел"</p>
-                            <p>8 (347) 299-97-97, 8 (905) 352-97-97</p>
+
+                            @if($settings->tel1 && $settings->tel2)
+                                <p>
+                                    +7 @php echo substr($settings->tel1, 0, 3) . ' ' . substr($settings->tel1, 3, 3) . '-' . substr($settings->tel1, 6, 2)  . '-' . substr($settings->tel1, 8, 2) @endphp,
+                                    +7 @php echo substr($settings->tel2, 0, 3) . ' ' . substr($settings->tel2, 3, 3) . '-' . substr($settings->tel2, 6, 2)  . '-' . substr($settings->tel2, 8, 2) @endphp
+                                </p>
+                            @endif
+
                             <p>Режим работы: круглосуточно и без выходных!</p>
                             <p>E-mail: 2999797@mail.ru</p>
                             <p>г. Уфа, ул. Степана Злобина, д. 6</p>

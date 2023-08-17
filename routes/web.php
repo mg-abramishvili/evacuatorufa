@@ -3,17 +3,22 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Page;
+use App\Models\HomePage;
+use App\Models\Setting;
 
 Route::get('/', function () {
+    $settings = Setting::find(1);
+    $homePage = HomePage::find(1);
     $pages = Page::orderBy('order', 'asc')->get();
 
-    return view('home', compact('pages'));
+    return view('home', compact('settings', 'homePage', 'pages'));
 });
 
 Route::get('/p/{slug}', function ($slug) {
+    $settings = Setting::find(1);
     $page = Page::where('slug', $slug)->first();
 
-    return view('page', compact('page'));
+    return view('page', compact('settings', 'page'));
 });
 
 Route::post('_leads', [App\Http\Controllers\LeadController::class, 'store']);
@@ -38,6 +43,12 @@ Route::get('_admin/leads', [App\Http\Controllers\Admin\LeadController::class, 'i
 Route::get('_admin/lead/{id}', [App\Http\Controllers\Admin\LeadController::class, 'lead'])->middleware(['auth']);
 Route::put('_admin/lead/{id}/update', [App\Http\Controllers\Admin\LeadController::class, 'update'])->middleware(['auth']);
 Route::delete('_admin/lead/{id}/delete', [App\Http\Controllers\Admin\LeadController::class, 'delete'])->middleware(['auth']);
+
+// ADMIN PAGES
+Route::get('_admin/pages', [App\Http\Controllers\Admin\PageController::class, 'index'])->middleware(['auth']);
+Route::get('_admin/page/{id}', [App\Http\Controllers\Admin\PageController::class, 'page'])->middleware(['auth']);
+Route::put('_admin/page/{id}/update', [App\Http\Controllers\Admin\PageController::class, 'update'])->middleware(['auth']);
+Route::delete('_admin/page/{id}/delete', [App\Http\Controllers\Admin\PageController::class, 'delete'])->middleware(['auth']);
 
 // ADMIN FILE UPLOAD
 Route::post('_admin/file/upload', [App\Http\Controllers\Admin\FileController::class, 'store']);

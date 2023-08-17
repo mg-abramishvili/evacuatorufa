@@ -260,7 +260,7 @@ footer .title-header {
 .why .title-header {
     margin-bottom: 20px;
 }
-.why p strong {
+.why p.str strong {
     background-color: #fc0;
     padding: 10px 20px;
     color: #222;
