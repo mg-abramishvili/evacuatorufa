@@ -3,7 +3,7 @@
         <div class="col-12 col-lg-4">
             <img src="/img/contact-circle.png" alt="">
         </div>
-        <div class="col-12 col-lg-4">
+        <div class="col-12 col-lg-4 formchecks">
             <div v-for="(transport, index) in transports" class="form-check">
                 <input class="form-check-input" type="radio" v-model="selected.transport" :id="form_id + '_' + index" :value="transport">
                 <label class="form-check-label" :for="form_id + '_' + index">

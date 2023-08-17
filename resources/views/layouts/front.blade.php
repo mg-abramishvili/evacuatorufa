@@ -47,6 +47,10 @@
 
                 <nav class="navbar navbar-expand-md navbar-ev">
                     <div class="container">
+                        <a href="/" class="navbar-logo">
+                            Служба Эвакуации <strong>г. УФА</strong>
+                        </a>
+
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="تبديل التنقل">
                             <span class="navbar-toggler-icon"></span>
                         </button>
