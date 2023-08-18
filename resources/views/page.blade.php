@@ -43,7 +43,5 @@
 
     @include('mainform')
 
-    @include('gallery')
-
     @include('map')
 @endsection

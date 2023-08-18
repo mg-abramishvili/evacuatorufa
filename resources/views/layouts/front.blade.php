@@ -126,8 +126,8 @@
                             <p><a href="/otzyvy/">Отзывы</a></p>
 
                             <ul class="footer-social-icons">
-                                <li><a href="https://vk.com/evacar102"><img src="/img/vk.svg"></a></li>
-                                <li><a href="https://www.instagram.com/evakuator_ufa_102/"><img src="/img/instagram.svg"></a></li>
+                                <li><a href="{{ $settings->vk_link }}"><img src="/img/vk.svg"></a></li>
+                                <li><a href="{{ $settings->instagram_link }}"><img src="/img/instagram.svg"></a></li>
                             </ul>
                         </div>
                     </div>

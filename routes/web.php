@@ -30,6 +30,22 @@ Route::get('/p/{slug}', function ($slug) {
     return view('page', compact('settings', 'page', 'pages', 'advantages', 'questions'));
 });
 
+Route::get('/o-nas', function () {
+    $settings = Setting::find(1);
+    $advantages = Advantage::all();
+    $pages = Page::orderBy('order', 'asc')->get();
+
+    return view('onas', compact('settings', 'pages', 'advantages'));
+});
+
+Route::get('/kontakty', function () {
+    $settings = Setting::find(1);
+    $advantages = Advantage::all();
+    $pages = Page::orderBy('order', 'asc')->get();
+
+    return view('kontakty', compact('settings', 'pages', 'advantages'));
+});
+
 Route::post('_leads', [App\Http\Controllers\LeadController::class, 'store']);
 
 // ADMIN

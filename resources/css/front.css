@@ -47,6 +47,7 @@ body {
     right: 0;
     margin-top: 0;
     z-index: 999;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
 }
 @media (min-width: 992px) {
     .navbar-ev {
@@ -57,7 +58,6 @@ body {
         left: auto;
         right: auto;
         margin-top: -1px;
-        box-shadow: none;
     }
 }
 .navbar-logo {
@@ -80,7 +80,7 @@ body {
     font-weight: 700;
     font-size: 18px;
     text-transform: uppercase;
-    padding: 8px 50px;
+    padding: 6px 50px;
     border-left: 0;
     text-align: center;
 }
