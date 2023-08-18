@@ -95,7 +95,7 @@
                         <div class="col-12 col-lg-4 footer-left">
                             <h5 class="title-header">Контакты</h5>
 
-                            <p>© Служба эвакуации "Авто Ангел"</p>
+                            <p>© Служба эвакуации "АВТО ВЕЗЕТ"</p>
 
                             @if($settings->tel1 && $settings->tel2)
                                 <p class="fw-bold">
