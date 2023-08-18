@@ -61,7 +61,7 @@
                                     <a class="nav-link" href="/">Главная</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#services">Цены</a>
+                                    <a class="nav-link" href="#services" id="services-link">Цены</a>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -147,6 +147,18 @@
             if(document.getElementById('freeEvauators')) {
                 document.getElementById('freeEvauators').innerText = freeEvacuators[randomNumber] + ' эвакуатора'
             }
+        </script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                document.getElementById("services-link").onclick = function() {
+                    let bsCollapse = new bootstrap.Collapse(document.querySelector('.navbar-collapse'), {
+                        toggle: false
+                    })
+
+                    bsCollapse.hide()
+                }
+            })
         </script>
 
         @yield('scripts')
