@@ -61,16 +61,25 @@
                                     <a class="nav-link" href="/">Главная</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Цены</a>
+                                    <a class="nav-link" href="#services">Цены</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Услуги эвакуатора
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        @foreach($pages as $page)
+                                            <li>
+                                                <a class="dropdown-item" href="/p/{{ $page->slug }}">{{ $page->name }}</a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">О нас</a>
+                                    <a class="nav-link" href="/o-nas">О нас</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Услуги эвакуатора</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Контакты</a>
+                                    <a class="nav-link" href="/kontakty">Контакты</a>
                                 </li>
                             </ul>
                         </div>
@@ -126,7 +135,7 @@
             </footer>
         </div>
 
-        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/bootstrap.bundle.min.js"></script>
         <script src="/js/flickity.pkgd.min.js"></script>
         @vite('resources/js/front.js')
 

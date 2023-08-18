@@ -80,7 +80,7 @@ body {
     font-weight: 700;
     font-size: 18px;
     text-transform: uppercase;
-    padding: 10px 50px;
+    padding: 8px 50px;
     border-left: 0;
     text-align: center;
 }
@@ -101,6 +101,10 @@ body {
 .navbar-ev .navbar-nav .nav-link:hover,
 .navbar-ev .navbar-nav .nav-link:focus {
     background-color: #ffcc00;
+}
+.navbar-ev .dropdown-item:focus,
+.navbar-ev .dropdown-item:hover {
+    background-color: #fc0;
 }
 
 header {
