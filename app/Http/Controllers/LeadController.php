@@ -24,6 +24,6 @@ class LeadController extends Controller
 
         $lead->save();
 
-        Mail::to('2661184@mail.ru')->send(new LeadMail($lead));
+        Mail::to('mg@abramishvili.net')->send(new LeadMail($lead));
     }
 }
