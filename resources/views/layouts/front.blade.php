@@ -149,18 +149,6 @@
             }
         </script>
 
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                document.body.addEventListener('touchstart', () => {
-                    let bsCollapse = new bootstrap.Collapse(document.querySelector('.navbar-collapse'), {
-                        toggle: false
-                    })
-
-                    bsCollapse.hide()
-                })
-            })
-        </script>
-
         @yield('scripts')
     </body>
 </html>
