@@ -728,6 +728,14 @@ footer .title-header {
 .page-block {
     background-color: #fff;
 }
+.page-block.p2 {
+    padding-top: 100px;
+}
+@media (min-width: 992px) {
+    .page-block.p2 {
+        padding-top: 70px;
+    }
+}
 
 .page-dop {
     font-size: 17px;
