@@ -293,6 +293,10 @@ header {
         height: 200px;
     }
 }
+.services-item a {
+    text-decoration: none;
+    color: #222;
+}
 .services-item span {
     display: block;
     text-align: center;
