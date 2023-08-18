@@ -7,7 +7,9 @@
                 <div class="col-6 col-lg-4">
                     <div class="services-item">
                         <img src="{{ $page->icon }}" alt="{{ $page->name }}">
-                        <h3 class="services-item-name">{{ $page->name }}</h3>
+                        <h3 class="services-item-name">
+                            <a href="/p/{{ $page->slug }}">{{ $page->name }}</a>
+                        </h3>
 
                         <span>от {{ $page->price }} руб.</span>
 
