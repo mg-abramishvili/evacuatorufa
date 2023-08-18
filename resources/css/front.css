@@ -411,10 +411,12 @@ footer .title-header {
     background-size: cover;
     background-position: -50% 50%;
     color: #fff;
+    text-align: center;
 }
 @media (min-width: 992px) {
     .mini-form {
         background-position: center center;
+        text-align: left;
     }
 }
 .mini-form-inner {
@@ -452,10 +454,24 @@ footer .title-header {
     height: 50px;
     line-height: 50px;
     padding: 0 10px;
-    width: 50%;
+    width: 100%;
+}
+@media (min-width: 992px) {
+    .mini-form-form .form-control {
+        width: 50%;
+    }
 }
 .mini-form-form .btn-primary {
-    margin-left: 10px;
+    margin-left: 0;
+    width: 100%;
+    margin-top: 10px;
+}
+@media (min-width: 992px) {
+    .mini-form-form .btn-primary {
+        margin-left: 10px;
+        margin-top: 0;
+        width: auto;
+    }
 }
 
 .why {
@@ -701,7 +717,7 @@ footer .title-header {
 @media (min-width: 992px) {
     .page-hero .title-header {
         font-size: 50px;
-        margin-bottom: 40px;
+        margin-bottom: 25px;
     }
 }
 .page-hero .title-header i {
@@ -711,4 +727,33 @@ footer .title-header {
 
 .page-block {
     background-color: #fff;
+}
+
+.page-dop {
+    font-size: 17px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    line-height: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+}
+@media (min-width: 992px) {
+    .page-dop {
+        font-size: 20px;
+        margin-bottom: 30px;
+    }
+}
+.page-dop p {
+    margin-bottom: 0;
+}
+.page-dop a {
+    color: #222;
+    text-decoration: none;
+    margin-left: 6px;
+}
+
+.accordion-button {
+    font-weight: 700;
 }

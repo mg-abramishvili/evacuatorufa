@@ -7,6 +7,11 @@
         <div class="container">
             <h1 class="title-header">{{ $page->name }} от <i>{{ $page->price }}</i> руб.</h1>
 
+            <div class="page-dop">
+                <p>Вызвать эвакуатор круглосуточно:</p>
+                <a href="tel:+7{{$settings->tel2}}">+7 @php echo substr($settings->tel2, 0, 3) . ' ' . substr($settings->tel2, 3, 3) . '-' . substr($settings->tel2, 6, 2)  . '-' . substr($settings->tel2, 8, 2) @endphp</a>
+            </div>
+
             <a href="tel:+7{{ $settings->tel2 }}" class="btn btn-primary">Вызвать эвакуатор</a>
         </div>
     </div>

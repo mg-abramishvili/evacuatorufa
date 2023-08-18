@@ -30,8 +30,8 @@
                             </div>
                             <div class="col-12 col-lg-6">
                                 <div class="header-tel">
-                                    <a href="{{ $settings->tel1 }}">+7 @php echo substr($settings->tel1, 0, 3) . ' ' . substr($settings->tel1, 3, 3) . '-' . substr($settings->tel1, 6, 2)  . '-' . substr($settings->tel1, 8, 2) @endphp</a>
-                                    <a href="{{ $settings->tel2 }}">+7 @php echo substr($settings->tel2, 0, 3) . ' ' . substr($settings->tel2, 3, 3) . '-' . substr($settings->tel2, 6, 2)  . '-' . substr($settings->tel2, 8, 2) @endphp</a>
+                                    <a href="tel:+7{{$settings->tel1}}">+7 @php echo substr($settings->tel1, 0, 3) . ' ' . substr($settings->tel1, 3, 3) . '-' . substr($settings->tel1, 6, 2)  . '-' . substr($settings->tel1, 8, 2) @endphp</a>
+                                    <a href="tel:+7{{$settings->tel2}}">+7 @php echo substr($settings->tel2, 0, 3) . ' ' . substr($settings->tel2, 3, 3) . '-' . substr($settings->tel2, 6, 2)  . '-' . substr($settings->tel2, 8, 2) @endphp</a>
                                     <span>Круглосуточно</span>
                                 </div>
                             </div>
@@ -144,7 +144,9 @@
 
             let randomNumber = Math.floor(Math.random() * freeEvacuators.length)
 
-            document.getElementById('freeEvauators').innerText = freeEvacuators[randomNumber] + ' эвакуатора'
+            if(document.getElementById('freeEvauators')) {
+                document.getElementById('freeEvauators').innerText = freeEvacuators[randomNumber] + ' эвакуатора'
+            }
         </script>
 
         <script>
