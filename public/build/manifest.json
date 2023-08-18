@@ -28,7 +28,7 @@
     "src": "resources/js/admin.js"
   },
   "resources/js/front.js": {
-    "file": "assets/front-806a50b6.js",
+    "file": "assets/front-a61e05b4.js",
     "imports": [
       "__plugin-vue_export-helper-22fdd37f.js"
     ],
