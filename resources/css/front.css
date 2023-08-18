@@ -280,7 +280,7 @@ header {
     text-transform: uppercase;
     text-align: center;
     margin: 0;
-    height: 60px;
+    height: auto;
     overflow: hidden;
 }
 @media (min-width: 992px) {
@@ -291,7 +291,7 @@ header {
 }
 .services-item img {
     width: auto;
-    height: 100px;
+    height: 170px;
     display: block;
     margin: 0 auto;
 }
