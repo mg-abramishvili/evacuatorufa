@@ -6,7 +6,13 @@
                 <p>Эвакуаторы нашей компании базируются в разных районах города Уфы для более быстрой подачи техники и эвакуации машины</p>
                 <p>Сейчас свободно: <strong>4 эвакуатора</strong></p>
                 <p>Время подачи: <strong>15 минут</strong></p>
-                <a href="tel:+7{{ $settings->tel2 }}" class="btn btn-primary">Вызвать эвакуатор</a>
+
+                <div class="map-dop">
+                    <p>Вызвать эвакуатор круглосуточно:</p>
+                    <a href="tel:+7 @php echo substr($settings->tel2, 0, 3) . ' ' . substr($settings->tel2, 3, 3) . '-' . substr($settings->tel2, 6, 2)  . '-' . substr($settings->tel2, 8, 2) @endphp">+7 @php echo substr($settings->tel2, 0, 3) . ' ' . substr($settings->tel2, 3, 3) . '-' . substr($settings->tel2, 6, 2)  . '-' . substr($settings->tel2, 8, 2) @endphp</a>
+                </div>
+
+                <a href="tel:+7 @php echo substr($settings->tel2, 0, 3) . ' ' . substr($settings->tel2, 3, 3) . '-' . substr($settings->tel2, 6, 2)  . '-' . substr($settings->tel2, 8, 2) @endphp" class="btn btn-primary">Вызвать эвакуатор</a>
             </div>
             <div class="col-12 col-lg-7">
                 <div class="map-map">

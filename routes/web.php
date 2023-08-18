@@ -46,6 +46,22 @@ Route::get('/kontakty', function () {
     return view('kontakty', compact('settings', 'pages', 'advantages'));
 });
 
+Route::get('/pricelist', function () {
+    $settings = Setting::find(1);
+    $advantages = Advantage::all();
+    $pages = Page::orderBy('order', 'asc')->get();
+
+    return view('pricelist', compact('settings', 'pages', 'advantages'));
+});
+
+Route::get('/otzyvy', function () {
+    $settings = Setting::find(1);
+    $advantages = Advantage::all();
+    $pages = Page::orderBy('order', 'asc')->get();
+
+    return view('otzyvy', compact('settings', 'pages', 'advantages'));
+});
+
 Route::post('_leads', [App\Http\Controllers\LeadController::class, 'store']);
 
 // ADMIN

@@ -121,8 +121,8 @@
                         <div class="col-12 col-lg-4 footer-right">
                             <h5 class="title-header">Информация</h5>
 
-                            <p><a href="/">О компании</a></p>
-                            <p><a href="/ceny/">Прайс-лист</a></p>
+                            <p><a href="/o-nas">О компании</a></p>
+                            <p><a href="/pricelist/">Прайс-лист</a></p>
                             <p><a href="/otzyvy/">Отзывы</a></p>
 
                             <ul class="footer-social-icons">
@@ -145,6 +145,18 @@
             let randomNumber = Math.floor(Math.random() * freeEvacuators.length)
 
             document.getElementById('freeEvauators').innerText = freeEvacuators[randomNumber] + ' эвакуатора'
+        </script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                document.body.addEventListener('touchstart', () => {
+                    let bsCollapse = new bootstrap.Collapse(document.querySelector('.navbar-collapse'), {
+                        toggle: false
+                    })
+
+                    bsCollapse.hide()
+                })
+            })
         </script>
 
         @yield('scripts')
