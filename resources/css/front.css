@@ -65,11 +65,17 @@ body {
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 700;
+    display: inline-flex;
+    align-items: center;
 }
 @media (min-width: 992px) {
     .navbar-logo {
         display: none;
     }
+}
+.navbar-logo img {
+    width: 80px;
+    margin-right: 10px;
 }
 .navbar-ev ul {
     width: 100%;
@@ -135,6 +141,15 @@ header {
     font-size: 24px;
     color: #fff;
     line-height: 1.3;
+    display: inline-flex;
+    align-items: center;
+}
+.header-logo a img {
+    background-color: #fff;
+    width: 200px;
+    padding: 10px;
+    border-radius: 4px;
+    margin-right: 20px;
 }
 .header-logo a strong {
     font-size: 40px;

@@ -24,7 +24,8 @@
                             <div class="col-12 col-lg-6">
                                 <div class="header-logo">
                                     <a href="/">
-                                        Служба Эвакуации <strong>г. УФА</strong>
+                                        <img src="/img/logo.svg" alt="Эвакуатор Уфа">
+                                        <span>Служба Эвакуации <strong>г. УФА</strong></span>
                                     </a>
                                 </div>
                             </div>
@@ -48,6 +49,7 @@
                 <nav class="navbar navbar-expand-md navbar-ev">
                     <div class="container">
                         <a href="/" class="navbar-logo">
+                            <img src="/img/logo.svg" alt="Эвакуатор Уфа">
                             Служба Эвакуации <strong>г. УФА</strong>
                         </a>
 
