@@ -33,7 +33,7 @@ class PageController extends Controller
             'desc2_text' => 'required',
         ]);
 
-        $page = Page::find(1);
+        $page = Page::find($id);
 
         $page->name = $request->name;
         $page->slug = $request->slug;
