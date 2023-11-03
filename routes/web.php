@@ -83,9 +83,17 @@ Route::prefix("admin")->middleware(['auth'])->group(function() {
 Route::get('_admin/settings', [App\Http\Controllers\Admin\SettingController::class, 'index'])->middleware(['auth']);
 Route::post('_admin/settings', [App\Http\Controllers\Admin\SettingController::class, 'update'])->middleware(['auth']);
 
-// ADMIN SETTINGS
+// ADMIN HOMEPAGE
 Route::get('_admin/homepage', [App\Http\Controllers\Admin\HomePageController::class, 'index'])->middleware(['auth']);
 Route::post('_admin/homepage', [App\Http\Controllers\Admin\HomePageController::class, 'update'])->middleware(['auth']);
+
+// ADMIN ABOUT-PAGE
+Route::get('_admin/about-page', [App\Http\Controllers\Admin\AboutPageController::class, 'index'])->middleware(['auth']);
+Route::post('_admin/about-page', [App\Http\Controllers\Admin\AboutPageController::class, 'update'])->middleware(['auth']);
+
+// ADMIN PRICELIST-PAGE
+Route::get('_admin/pricelist-page', [App\Http\Controllers\Admin\PricelistPageController::class, 'index'])->middleware(['auth']);
+Route::post('_admin/pricelist-page', [App\Http\Controllers\Admin\PricelistPageController::class, 'update'])->middleware(['auth']);
 
 // ADMIN LEADS
 Route::get('_admin/leads', [App\Http\Controllers\Admin\LeadController::class, 'index'])->middleware(['auth']);
