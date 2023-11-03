@@ -182,5 +182,13 @@
         </script>
 
         @yield('scripts')
+
+        <script>
+            let figureTable = document.getElementsByTagName('figure')
+
+            if(figureTable) {
+                alert('yes')
+            }
+        </script>
     </body>
 </html>
