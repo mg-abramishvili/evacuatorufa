@@ -188,7 +188,7 @@
 
             if(figures.length) {
                 for(var i = 0; i < figures.length; i++) {
-                    let figureTable = figures[i].getElementsByTagName('table')
+                    let figureTable = figures[i].getElementsByTagName('table')[0]
 
                     if(figureTable) {
                         figureTable.classList.add('table')
