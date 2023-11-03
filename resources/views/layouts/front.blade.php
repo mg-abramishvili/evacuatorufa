@@ -186,7 +186,7 @@
         <script>
             let figureTable = document.getElementsByTagName('figure')
 
-            if(figureTable) {
+            if(figureTable.length) {
                 alert('yes')
             }
         </script>
