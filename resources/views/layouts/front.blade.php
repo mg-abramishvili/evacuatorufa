@@ -187,13 +187,13 @@
             let figures = document.getElementsByTagName('figure')
 
             if(figures.length) {
-                figures.forEach(figure => {
-                    let figureTable = figure.getElementsByTagName('table')
+                for(var i = 0; i < figures.length; i++) {
+                    let figureTable = figures[i].getElementsByTagName('table')
 
                     if(figureTable) {
                         figureTable.classList.add('table')
                     }
-                })
+                }
             }
         </script>
     </body>
