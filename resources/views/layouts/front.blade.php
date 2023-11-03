@@ -192,6 +192,7 @@
 
                     if(figureTable) {
                         figureTable.classList.add('table')
+                        figureTable.classList.add('table-bordered')
                     }
                 }
             }
