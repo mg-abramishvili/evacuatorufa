@@ -184,10 +184,16 @@
         @yield('scripts')
 
         <script>
-            let figureTable = document.getElementsByTagName('figure')
+            let figures = document.getElementsByTagName('figure')
 
-            if(figureTable.length) {
-                alert('yes')
+            if(figures.length) {
+                figures.forEach(figure => {
+                    let figureTable = figure.getElementsByTagName('table')
+
+                    if(figureTable) {
+                        figureTable.classList.add('table')
+                    }
+                })
             }
         </script>
     </body>
