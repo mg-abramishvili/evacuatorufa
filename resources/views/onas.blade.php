@@ -1,13 +1,13 @@
 @extends('layouts.front')
-@section('title', "О компании")
-@section('description', "О компании")
+@section('title', $aboutPage->name)
+@section('description', $aboutPage->name)
 
 @section('content')
     <div class="page-block p2">
         <div class="container">
-            <h2 class="title-header mb-4">О компании</h1>
+            <h2 class="title-header mb-4">{{ $aboutPage->name }}</h1>
             
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate eos dignissimos, totam fuga deleniti quia, vel nam natus, corporis quod ab velit quis delectus neque sapiente consectetur minus nostrum! Officiis veritatis, eveniet alias officia magnam optio possimus tenetur veniam minus ea delectus, perferendis neque quae maxime illo voluptates quis sequi.</p>
+            {!! $aboutPage->description !!}
         </div>
     </div>
 

@@ -7,6 +7,8 @@ use App\Models\HomePage;
 use App\Models\Setting;
 use App\Models\Advantage;
 use App\Models\Question;
+use App\Models\PricelistPage;
+use App\Models\AboutPage;
 
 Route::get('/', function () {
     $settings = Setting::find(1);
@@ -34,8 +36,9 @@ Route::get('/o-nas', function () {
     $settings = Setting::find(1);
     $advantages = Advantage::all();
     $pages = Page::orderBy('order', 'asc')->get();
+    $aboutPage = AboutPage::find(1);
 
-    return view('onas', compact('settings', 'pages', 'advantages'));
+    return view('onas', compact('settings', 'pages', 'advantages', 'aboutPage'));
 });
 
 Route::get('/kontakty', function () {
@@ -50,8 +53,9 @@ Route::get('/pricelist', function () {
     $settings = Setting::find(1);
     $advantages = Advantage::all();
     $pages = Page::orderBy('order', 'asc')->get();
+    $pricelistPage = PricelistPage::find(1);
 
-    return view('pricelist', compact('settings', 'pages', 'advantages'));
+    return view('pricelist', compact('settings', 'pages', 'advantages', 'pricelistPage'));
 });
 
 Route::get('/otzyvy', function () {
