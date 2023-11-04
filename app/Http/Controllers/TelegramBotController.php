@@ -15,11 +15,6 @@ class TelegramBotController extends Controller
         $data = $request->callback_query ? $request->callback_query : $request->message;
 
         $message = mb_strtolower(($data['text'] ? $data['text'] : $data['data']), 'utf-8');
-        
-        if($request->callback_query) {
-            file_put_contents(public_path('text.txt'), '');
-            file_put_contents(public_path('text.txt'), '$callback_query: '.print_r($request->callback_query, 1)."\n", FILE_APPEND);
-        }
 
         switch ($message)
         {
@@ -31,7 +26,7 @@ class TelegramBotController extends Controller
                         'resize_keyboard' => true,
                         'keyboard' => [
                             [
-                                ['text' => '⚡️ Вызвать эвакуатор', 'callback_data' => 'order_evac'],
+                                ['text' => '⚡️ Вызвать эвакуатор'],
                                 ['text' => 'Цены 💵'],
                                 ['text' => 'Наши преимущества ✔️'],
                                 ['text' => 'Фотогалерея 📸'],
@@ -41,7 +36,7 @@ class TelegramBotController extends Controller
                 ];
                 break;
             
-            case 'order_evac':
+            case '⚡️ вызвать эвакуатор':
                 $pages = Page::all();
 
                 $method = 'sendMessage';
