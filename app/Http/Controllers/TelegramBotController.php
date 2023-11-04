@@ -13,82 +13,76 @@ class TelegramBotController extends Controller
     {
         define('TOKEN', env('TELEGRAM_BOT_TOKEN'));
         
-        # Принимаем запрос
-        $data = json_decode(file_get_contents('php://input'), TRUE);
+        // $data = json_decode(file_get_contents('php://input'), TRUE);
         
-        file_put_contents(public_path('text.txt'), '$data: '.print_r($data, 1)."\n", FILE_APPEND);
+        // file_put_contents(public_path('text.txt'), '$data: '.print_r($data, 1)."\n", FILE_APPEND);
 
-        # Обрабатываем ручной ввод или нажатие на кнопку
-        $data = $data['callback_query'] ? $data['callback_query'] : $data['message'];
+        // $data = $data['callback_query'] ? $data['callback_query'] : $data['message'];
 
-        # Записываем сообщение пользователя
-        $message = mb_strtolower(($data['text'] ? $data['text'] : $data['data']),'utf-8');
+        // $message = mb_strtolower(($data['text'] ? $data['text'] : $data['data']),'utf-8');
 
-        return 1;
+        // switch ($message)
+        // {
+        //     case 'текст':
+        //         $method = 'sendMessage';
+        //         $send_data = [
+        //             'text'   => 'Вот мой ответ'
+        //         ];
+        //         break;
 
-        # Обрабатываем сообщение
-        switch ($message)
-        {
-            case 'текст':
-                $method = 'sendMessage';
-                $send_data = [
-                    'text'   => 'Вот мой ответ'
-                ];
-                break;
-
-            case 'кнопки':
-                $method = 'sendMessage';
-                $send_data = [
-                    'text'   => 'Вот мои кнопки',
-                    'reply_markup' => [
-                        'resize_keyboard' => true,
-                        'keyboard' => [
-                            [
-                                ['text' => 'Видео'],
-                                ['text' => 'Кнопка 2'],
-                            ],
-                            [
-                                ['text' => 'Кнопка 3'],
-                                ['text' => 'Кнопка 4'],
-                            ]
-                        ]
-                    ]
-                ];
-                break;
+        //     case 'кнопки':
+        //         $method = 'sendMessage';
+        //         $send_data = [
+        //             'text'   => 'Вот мои кнопки',
+        //             'reply_markup' => [
+        //                 'resize_keyboard' => true,
+        //                 'keyboard' => [
+        //                     [
+        //                         ['text' => 'Видео'],
+        //                         ['text' => 'Кнопка 2'],
+        //                     ],
+        //                     [
+        //                         ['text' => 'Кнопка 3'],
+        //                         ['text' => 'Кнопка 4'],
+        //                     ]
+        //                 ]
+        //             ]
+        //         ];
+        //         break;
 
 
-            case 'видео':
-                $method = 'sendVideo';
-                $send_data = [
-                    'video'   => 'https://chastoedov.ru/video/amo.mp4',
-                    'caption' => 'Вот мое видео',
-                    'reply_markup' => [
-                        'resize_keyboard' => true,
-                        'keyboard' => [
-                            [
-                                ['text' => 'Кнопка 1'],
-                                ['text' => 'Кнопка 2'],
-                            ],
-                            [
-                                ['text' => 'Кнопка 3'],
-                                ['text' => 'Кнопка 4'],
-                            ]
-                        ]
-                    ]
-                ];
-                break;
+        //     case 'видео':
+        //         $method = 'sendVideo';
+        //         $send_data = [
+        //             'video'   => 'https://chastoedov.ru/video/amo.mp4',
+        //             'caption' => 'Вот мое видео',
+        //             'reply_markup' => [
+        //                 'resize_keyboard' => true,
+        //                 'keyboard' => [
+        //                     [
+        //                         ['text' => 'Кнопка 1'],
+        //                         ['text' => 'Кнопка 2'],
+        //                     ],
+        //                     [
+        //                         ['text' => 'Кнопка 3'],
+        //                         ['text' => 'Кнопка 4'],
+        //                     ]
+        //                 ]
+        //             ]
+        //         ];
+        //         break;
 
-            default:
-                $method = 'sendMessage';
-                $send_data = [
-                    'text' => 'Не понимаю о чем вы :('
-                ];
-        }
+        //     default:
+        //         $method = 'sendMessage';
+        //         $send_data = [
+        //             'text' => 'Не понимаю о чем вы :('
+        //         ];
+        // }
 
-        # Добавляем данные пользователя
-        $send_data['chat_id'] = $data['chat']['id'];
+        // $send_data['chat_id'] = $data['chat']['id'];
 
-        $res = $this->sendTelegram($method, $send_data);
+        // $res = $this->sendTelegram($method, $send_data);
+        $res = $this->sendTelegram("sendMessage", "Testo");
     }
 
     public function sendTelegram($method, $data, $headers = [])
