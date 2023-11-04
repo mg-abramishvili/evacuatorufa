@@ -13,7 +13,7 @@ class TelegramBotController extends Controller
     {
         define('TOKEN', env('TELEGRAM_BOT_TOKEN'));
 
-        return TOKEN;
+        return 1;
 
         # Принимаем запрос
         $data = json_decode(file_get_contents('php://input'), TRUE);
