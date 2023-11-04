@@ -26,7 +26,7 @@ class TelegramBotController extends Controller
                         'resize_keyboard' => true,
                         'keyboard' => [
                             [
-                                ['text' => 'Вызватьэвакуатор'],
+                                ['text' => '⚡️ Вызвать эвакуатор'],
                                 ['text' => 'Цены 💵'],
                             ],
                             [
@@ -38,7 +38,7 @@ class TelegramBotController extends Controller
                 ];
                 break;
             
-            case 'Вызватьэвакуатор':
+            case '⚡️ вызвать эвакуатор':
                 $method = 'sendMessage';
                 $send_data = [
                     'text'   => 'Какой у вас транспорт?',
