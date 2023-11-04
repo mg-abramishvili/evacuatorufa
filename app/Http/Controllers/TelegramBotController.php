@@ -69,7 +69,7 @@ class TelegramBotController extends Controller
             default:
                 $method = 'sendMessage';
                 $send_data = [
-                    'text' => 'Не понимаю о чем вы :('
+                    'text' => ':('
                 ];
         }
 
