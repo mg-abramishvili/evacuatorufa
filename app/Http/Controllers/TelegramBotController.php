@@ -21,63 +21,68 @@ class TelegramBotController extends Controller
         
         $message = $data['text'] ? $data['text'] : $data['data'];
 
-        switch ($message)
-        {
-            case 'текст':
-                $method = 'sendMessage';
-                $send_data = [
-                    'text'   => 'Вот мой ответ'
-                ];
-                break;
+        // switch ($message)
+        // {
+        //     case 'текст':
+        //         $method = 'sendMessage';
+        //         $send_data = [
+        //             'text'   => 'Вот мой ответ'
+        //         ];
+        //         break;
 
-            case 'кнопки':
-                $method = 'sendMessage';
-                $send_data = [
-                    'text'   => 'Вот мои кнопки',
-                    'reply_markup' => [
-                        'resize_keyboard' => true,
-                        'keyboard' => [
-                            [
-                                ['text' => 'Видео'],
-                                ['text' => 'Кнопка 2'],
-                            ],
-                            [
-                                ['text' => 'Кнопка 3'],
-                                ['text' => 'Кнопка 4'],
-                            ]
-                        ]
-                    ]
-                ];
-                break;
+        //     case 'кнопки':
+        //         $method = 'sendMessage';
+        //         $send_data = [
+        //             'text'   => 'Вот мои кнопки',
+        //             'reply_markup' => [
+        //                 'resize_keyboard' => true,
+        //                 'keyboard' => [
+        //                     [
+        //                         ['text' => 'Видео'],
+        //                         ['text' => 'Кнопка 2'],
+        //                     ],
+        //                     [
+        //                         ['text' => 'Кнопка 3'],
+        //                         ['text' => 'Кнопка 4'],
+        //                     ]
+        //                 ]
+        //             ]
+        //         ];
+        //         break;
 
 
-            case 'видео':
-                $method = 'sendVideo';
-                $send_data = [
-                    'video'   => 'https://chastoedov.ru/video/amo.mp4',
-                    'caption' => 'Вот мое видео',
-                    'reply_markup' => [
-                        'resize_keyboard' => true,
-                        'keyboard' => [
-                            [
-                                ['text' => 'Кнопка 1'],
-                                ['text' => 'Кнопка 2'],
-                            ],
-                            [
-                                ['text' => 'Кнопка 3'],
-                                ['text' => 'Кнопка 4'],
-                            ]
-                        ]
-                    ]
-                ];
-                break;
+        //     case 'видео':
+        //         $method = 'sendVideo';
+        //         $send_data = [
+        //             'video'   => 'https://chastoedov.ru/video/amo.mp4',
+        //             'caption' => 'Вот мое видео',
+        //             'reply_markup' => [
+        //                 'resize_keyboard' => true,
+        //                 'keyboard' => [
+        //                     [
+        //                         ['text' => 'Кнопка 1'],
+        //                         ['text' => 'Кнопка 2'],
+        //                     ],
+        //                     [
+        //                         ['text' => 'Кнопка 3'],
+        //                         ['text' => 'Кнопка 4'],
+        //                     ]
+        //                 ]
+        //             ]
+        //         ];
+        //         break;
 
-            default:
-                $method = 'sendMessage';
-                $send_data = [
-                    'text' => 'Не понимаю о чем вы :('
-                ];
-        }
+        //     default:
+        //         $method = 'sendMessage';
+        //         $send_data = [
+        //             'text' => 'Не понимаю о чем вы :('
+        //         ];
+        // }
+
+        $method = 'sendMessage';
+        $send_data = [
+            'text'   => 'Вот мой ответ'
+        ];
 
         $send_data['chat_id'] = $data['chat']['id'];
 
