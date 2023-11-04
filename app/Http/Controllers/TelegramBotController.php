@@ -12,10 +12,10 @@ class TelegramBotController extends Controller
     public function index(Request $request)
     {
         define('TOKEN', env('TELEGRAM_BOT_TOKEN'));
-        
-        $data = $request->getContent();
 
-        $data = $request->message;
+        $data = $request->callback_query ? $request->callback_query : $request->message;
+
+        // $message = mb_strtolower(($data['text'] ? $data['text'] : $data['data']),'utf-8');
 
         // file_put_contents(public_path('text.txt'), '$message: '.print_r($data, 1)."\n", FILE_APPEND);
 
