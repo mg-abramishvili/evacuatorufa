@@ -69,7 +69,7 @@ Route::get('/otzyvy', function () {
 Route::post('_leads', [App\Http\Controllers\LeadController::class, 'store']);
 
 // TELEGRAM BOT
-Route::get('_telegram', [App\Http\Controllers\Admin\TelegramBotController::class, 'index']);
+Route::get('_telegram', [App\Http\Controllers\TelegramBotController::class, 'index']);
 
 // ADMIN
 Route::get('admin', function () {

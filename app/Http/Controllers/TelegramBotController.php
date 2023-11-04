@@ -11,15 +11,15 @@ class TelegramBotController extends Controller
 {
     public function index(Request $request)
     {
+        define('TOKEN', env('TELEGRAM_BOT_TOKEN'));
+
+        return 1;
+
         # Принимаем запрос
         $data = json_decode(file_get_contents('php://input'), TRUE);
 
         # Обрабатываем ручной ввод или нажатие на кнопку
         $data = $data['callback_query'] ? $data['callback_query'] : $data['message'];
-
-        define('TOKEN', env('TELEGRAM_BOT_TOKEN'));
-
-        return 1;
 
         # Записываем сообщение пользователя
         $message = mb_strtolower(($data['text'] ? $data['text'] : $data['data']),'utf-8');
