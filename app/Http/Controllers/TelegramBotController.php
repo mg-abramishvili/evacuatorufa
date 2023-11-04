@@ -18,6 +18,26 @@ class TelegramBotController extends Controller
 
         switch ($message)
         {
+            case '/start':
+                $method = 'sendMessage';
+                $send_data = [
+                    'text'   => 'Добро пожаловать в службу эвакуации АвтоВезёт!',
+                    'reply_markup' => [
+                        'resize_keyboard' => true,
+                        'keyboard' => [
+                            [
+                                ['text' => 'Вызвать эвакуатор ⚡'],
+                                ['text' => 'Цены 💵'],
+                            ],
+                            [
+                                ['text' => 'Наши преимущества ✔️'],
+                                ['text' => 'Фотогалерея 📸'],
+                            ]
+                        ]
+                    ]
+                ];
+                break;
+            
             case 'Вызвать эвакуатор ⚡':
                 $pages = Page::all();
 
@@ -33,7 +53,7 @@ class TelegramBotController extends Controller
                                 ['text' => '3'],
                                 ['text' => '4'],
                                 ['text' => '5'],
-                                ['text' => 'Главное меню'],
+                                ['text' => '/start'],
                             ]
                         ]
                     ]
@@ -64,22 +84,8 @@ class TelegramBotController extends Controller
             default:
                 $method = 'sendMessage';
                 $send_data = [
-                    'text'   => 'Добро пожаловать в службу эвакуации АвтоВезёт!',
-                    'reply_markup' => [
-                        'resize_keyboard' => true,
-                        'keyboard' => [
-                            [
-                                ['text' => 'Вызвать эвакуатор ⚡'],
-                                ['text' => 'Цены 💵'],
-                            ],
-                            [
-                                ['text' => 'Наши преимущества ✔️'],
-                                ['text' => 'Фотогалерея 📸'],
-                            ]
-                        ]
-                    ]
+                    'text' => ':('
                 ];
-                break;
         }
 
         $send_data['chat_id'] = $data['chat']['id'];
