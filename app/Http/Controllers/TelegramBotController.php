@@ -14,8 +14,6 @@ class TelegramBotController extends Controller
         define('TOKEN', env('TELEGRAM_BOT_TOKEN'));
         
         $data = $request->getContent();
-        
-        // file_put_contents(public_path('text.txt'), '$data: '.print_r($data, 1)."\n", FILE_APPEND);
 
         file_put_contents(public_path('text.txt'), '$message: '.print_r($data, 1)."\n", FILE_APPEND);
 
@@ -77,16 +75,16 @@ class TelegramBotController extends Controller
         //         ];
         // }
 
-        $method = 'sendMessage';
-        $send_data = [
-            'text'   => 'Вот мой ответ'
-        ];
+        // $method = 'sendMessage';
+        // $send_data = [
+        //     'text'   => 'Вот мой ответ'
+        // ];
 
-        $send_data['chat_id'] = $data['chat']['id'];
+        // $send_data['chat_id'] = $data['chat']['id'];
 
-        file_put_contents(public_path('send_data.txt'), '$send_data: '.print_r($send_data, 1)."\n", FILE_APPEND);
+        // file_put_contents(public_path('send_data.txt'), '$send_data: '.print_r($send_data, 1)."\n", FILE_APPEND);
 
-        $this->sendTelegram($method, $send_data);
+        // $this->sendTelegram($method, $send_data);
     }
 
     public function sendTelegram($method, $data, $headers = [])
