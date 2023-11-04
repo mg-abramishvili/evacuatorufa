@@ -74,7 +74,7 @@ Route::post('_telegram', [App\Http\Controllers\TelegramBotController::class, 'in
 Route::get('/test', function () {
     $advantages = Advantage::all();
 
-    return $advantages;
+    return $advantages->pluck('title');
 });
 
 // ADMIN
