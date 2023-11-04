@@ -14,7 +14,7 @@ class TelegramBotController extends Controller
     {
         $data = $request->callback_query ? $request->callback_query : $request->message;
 
-        $message = mb_strtolower(($data['text'] ? $data['text'] : $data['data']), 'utf-8');
+        $message = mb_strtolower(($data['callback_data'] ? $data['callback_data'] : $data['text']), 'utf-8');
 
         switch ($message)
         {
@@ -26,7 +26,7 @@ class TelegramBotController extends Controller
                         'resize_keyboard' => true,
                         'keyboard' => [
                             [
-                                ['text' => '⚡️ Вызвать эвакуатор'],
+                                ['text' => '⚡️ Вызвать эвакуатор', 'callback_data' => 'order_evac'],
                                 ['text' => 'Цены 💵'],
                                 ['text' => 'Наши преимущества ✔️'],
                                 ['text' => 'Фотогалерея 📸'],
@@ -36,7 +36,7 @@ class TelegramBotController extends Controller
                 ];
                 break;
             
-            case '⚡️ вызвать эвакуатор':
+            case 'order_evac':
                 $pages = Page::all();
 
                 $method = 'sendMessage';
@@ -51,6 +51,7 @@ class TelegramBotController extends Controller
                 foreach($pages as $page) {
                     $send_data["reply_markup"]["keyboard"][] = [['text' => "$page->name"]];
                 }
+                $send_data["reply_markup"]["keyboard"][] = [['text' => "Назад", "callback_data" => '/start']];
 
                 break;
 
