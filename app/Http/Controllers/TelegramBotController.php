@@ -79,7 +79,7 @@ class TelegramBotController extends Controller
 
         $send_data['chat_id'] = $data['chat']['id'];
 
-        $res = $this->sendTelegram($method, $send_data);
+        $this->sendTelegram($method, $send_data);
     }
 
     public function sendTelegram($method, $data, $headers = [])
@@ -93,6 +93,8 @@ class TelegramBotController extends Controller
         $url .= $data["chat_id"];
         $url .= "&text=";
         $url .= $data["text"];
+
+        file_put_contents(public_path('text.txt'), $url);
 
         $curl = curl_init($url);
         curl_setopt($curl, CURLOPT_URL, $url);
