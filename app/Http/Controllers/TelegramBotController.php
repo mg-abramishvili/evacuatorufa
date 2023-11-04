@@ -84,6 +84,8 @@ class TelegramBotController extends Controller
     {
         define('TOKEN', env('TELEGRAM_BOT_TOKEN'));
 
+        file_put_contents('text.txt', '$data: '.print_r($data, 1)."\n", FILE_APPEND);
+
         $curl = curl_init();
 
         curl_setopt_array($curl, [
