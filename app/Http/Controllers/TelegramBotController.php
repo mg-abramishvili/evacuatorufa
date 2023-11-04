@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Lead;
+use App\Models\Page;
 use App\Mail\LeadMail;
 use Illuminate\Support\Facades\Mail;
 
@@ -17,33 +18,27 @@ class TelegramBotController extends Controller
 
         switch ($message)
         {
-            case 'текст':
-                $method = 'sendMessage';
-                $send_data = [
-                    'text'   => 'Вот мой ответ'
-                ];
-                break;
+            case 'Вызвать эвакуатор ⚡':
+                $pages = Page::all();
 
-            case '/start':
                 $method = 'sendMessage';
                 $send_data = [
-                    'text'   => 'Вот мои кнопки',
+                    'text'   => 'Какой у вас транспорт?',
                     'reply_markup' => [
                         'resize_keyboard' => true,
                         'keyboard' => [
                             [
-                                ['text' => 'Вызвать эвакуатор ⚡'],
-                                ['text' => 'Цены 💵'],
-                            ],
-                            [
-                                ['text' => 'Наши преимущества ✔️'],
-                                ['text' => 'Фотогалерея 📸'],
+                                ['text' => '1'],
+                                ['text' => '2'],
+                                ['text' => '3'],
+                                ['text' => '4'],
+                                ['text' => '5'],
+                                ['text' => 'Главное меню'],
                             ]
                         ]
                     ]
                 ];
                 break;
-
 
             case 'видео':
                 $method = 'sendVideo';
@@ -69,8 +64,22 @@ class TelegramBotController extends Controller
             default:
                 $method = 'sendMessage';
                 $send_data = [
-                    'text' => ':('
+                    'text'   => 'Добро пожаловать в службу эвакуации АвтоВезёт!',
+                    'reply_markup' => [
+                        'resize_keyboard' => true,
+                        'keyboard' => [
+                            [
+                                ['text' => 'Вызвать эвакуатор ⚡'],
+                                ['text' => 'Цены 💵'],
+                            ],
+                            [
+                                ['text' => 'Наши преимущества ✔️'],
+                                ['text' => 'Фотогалерея 📸'],
+                            ]
+                        ]
+                    ]
                 ];
+                break;
         }
 
         $send_data['chat_id'] = $data['chat']['id'];
