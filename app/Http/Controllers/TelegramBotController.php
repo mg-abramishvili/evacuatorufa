@@ -65,7 +65,7 @@ class TelegramBotController extends Controller
 
             $method = 'sendMessage';
             $send_data = [
-                'text'   => implode("\n", $adv),
+                'text'   => implode("\n\n", $adv),
             ];
         }
 
