@@ -32,7 +32,7 @@ class TelegramBotController extends Controller
                         'resize_keyboard' => true,
                         'keyboard' => [
                             [
-                                ['text' => 'Видео'],
+                                ['text' => 'Вызвать эвакуатор 🔧'],
                                 ['text' => 'Кнопка 2'],
                             ],
                             [
