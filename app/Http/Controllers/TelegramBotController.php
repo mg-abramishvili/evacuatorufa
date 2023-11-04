@@ -81,6 +81,8 @@ class TelegramBotController extends Controller
 
         $send_data['chat_id'] = $data['chat']['id'];
 
+        file_put_contents(public_path('send_data.txt'), '$send_data: '.print_r($send_data, 1)."\n", FILE_APPEND);
+
         $this->sendTelegram($method, $send_data);
     }
 
