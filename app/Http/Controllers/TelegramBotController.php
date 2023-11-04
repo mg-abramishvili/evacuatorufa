@@ -15,7 +15,7 @@ class TelegramBotController extends Controller
 
         # Принимаем запрос
         $data = json_decode(file_get_contents('php://input'), TRUE);
-        file_put_contents(public_path() . '/uploads/file.txt', '$data: '.print_r($data, 1)."\n", FILE_APPEND);
+        file_put_contents(public_path('text.txt'), '$data: '.print_r($data, 1)."\n", FILE_APPEND);
 
         # Обрабатываем ручной ввод или нажатие на кнопку
         $data = $data['callback_query'] ? $data['callback_query'] : $data['message'];
