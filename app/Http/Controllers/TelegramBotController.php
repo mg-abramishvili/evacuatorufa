@@ -90,7 +90,7 @@ class TelegramBotController extends Controller
         $url .= "?chat_id=";
         $url .= $send_data["chat_id"];
         $url .= "&text=";
-        $url .= $send_data["text"];
+        $url .= "opa";
 
         $curl = curl_init($url);
         curl_setopt($curl, CURLOPT_URL, $url);
