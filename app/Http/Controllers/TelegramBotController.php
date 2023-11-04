@@ -18,7 +18,7 @@ class TelegramBotController extends Controller
 
         switch ($message)
         {
-            case '/start':
+            case 'текст':
                 $method = 'sendMessage';
                 $send_data = [
                     'text'   => 'Добро пожаловать в службу эвакуации АвтоВезёт!',
