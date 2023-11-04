@@ -39,8 +39,6 @@ class TelegramBotController extends Controller
                 break;
             
             case 'Вызватьэвакуатор':
-                $pages = Page::all();
-
                 $method = 'sendMessage';
                 $send_data = [
                     'text'   => 'Какой у вас транспорт?',
