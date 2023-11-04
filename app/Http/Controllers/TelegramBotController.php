@@ -24,6 +24,8 @@ class TelegramBotController extends Controller
         # Записываем сообщение пользователя
         $message = mb_strtolower(($data['text'] ? $data['text'] : $data['data']),'utf-8');
 
+        return 1;
+
         # Обрабатываем сообщение
         switch ($message)
         {
