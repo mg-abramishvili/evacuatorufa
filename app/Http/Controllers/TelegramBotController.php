@@ -13,11 +13,11 @@ class TelegramBotController extends Controller
     {
         define('TOKEN', env('TELEGRAM_BOT_TOKEN'));
         
-        $data = $request->getContent();
+        $data = json_decode($request->getContent(), true);
 
         $data = $data['callback_query'] ? $data['callback_query'] : $data['message'];
         
-        file_put_contents(public_path('text.txt'), $data);
+        file_put_contents(public_path('text.txt'), $data['message']);
 
         // $message = mb_strtolower(($data['text'] ? $data['text'] : $data['data']),'utf-8');
         
