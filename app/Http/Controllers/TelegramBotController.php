@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Lead;
 use App\Models\Page;
+use App\Models\Advantage;
 use App\Mail\LeadMail;
 use Illuminate\Support\Facades\Mail;
 
@@ -64,7 +65,7 @@ class TelegramBotController extends Controller
 
             $method = 'sendMessage';
             $send_data = [
-                'text'   => implode("\n", $adv),
+                'text'   => implode(" ", $adv),
             ];
         }
 
