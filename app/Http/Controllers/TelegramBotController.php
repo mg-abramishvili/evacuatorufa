@@ -50,6 +50,10 @@ class TelegramBotController extends Controller
                             [
                                 ['text' => '1'],
                                 ['text' => '/start'],
+                            ],
+                            [
+                                ['text' => '2'],
+                                ['text' => '3'],
                             ]
                         ]
                     ]
