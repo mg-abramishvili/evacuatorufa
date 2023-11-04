@@ -15,7 +15,7 @@ class TelegramBotController extends Controller
         
         $data = json_decode($request->getContent(), true);
         
-        file_put_contents(public_path('text.txt'), $data);
+        file_put_contents(public_path('text.txt'), '$data: '.print_r($data, 1)."\n", FILE_APPEND);
 
         // $message = mb_strtolower(($data['text'] ? $data['text'] : $data['data']),'utf-8');
         
