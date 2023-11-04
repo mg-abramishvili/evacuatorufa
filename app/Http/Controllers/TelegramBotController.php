@@ -12,11 +12,11 @@ class TelegramBotController extends Controller
     public function index(Request $request)
     {
         define('TOKEN', env('TELEGRAM_BOT_TOKEN'));
-
+        
         # Принимаем запрос
         $data = json_decode(file_get_contents('php://input'), TRUE);
-
-        file_put_contents(public_path('text.txt'), $request->all());
+        
+        file_put_contents(public_path('text.txt'), '$data: '.print_r($data, 1)."\n", FILE_APPEND);
 
         # Обрабатываем ручной ввод или нажатие на кнопку
         $data = $data['callback_query'] ? $data['callback_query'] : $data['message'];
