@@ -28,8 +28,6 @@ class TelegramBotController extends Controller
                             [
                                 ['text' => '⚡️ Вызвать эвакуатор'],
                                 ['text' => 'Цены 💵'],
-                            ],
-                            [
                                 ['text' => 'Наши преимущества ✔️'],
                                 ['text' => 'Фотогалерея 📸'],
                             ]
@@ -39,23 +37,21 @@ class TelegramBotController extends Controller
                 break;
             
             case '⚡️ вызвать эвакуатор':
+                $pages = Page::all();
+
                 $method = 'sendMessage';
                 $send_data = [
                     'text'   => 'Какой у вас транспорт?',
                     'reply_markup' => [
                         'resize_keyboard' => true,
-                        'keyboard' => [
-                            [
-                                ['text' => '1'],
-                                ['text' => '/start'],
-                            ],
-                            [
-                                ['text' => '2'],
-                                ['text' => '3'],
-                            ]
-                        ]
+                        'keyboard' => [],
                     ]
                 ];
+                
+                foreach($pages as $page) {
+                    $send_data["reply_markup"]["keyboard"] = ['text' => $page->name ];
+                }
+
                 break;
 
             case 'видео':
