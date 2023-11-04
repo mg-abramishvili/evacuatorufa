@@ -71,6 +71,12 @@ Route::post('_leads', [App\Http\Controllers\LeadController::class, 'store']);
 // TELEGRAM BOT
 Route::post('_telegram', [App\Http\Controllers\TelegramBotController::class, 'index']);
 
+Route::get('/test', function () {
+    $advantages = Advantage::all();
+
+    return $advantages;
+});
+
 // ADMIN
 Route::get('admin', function () {
     return view('layouts.admin');
