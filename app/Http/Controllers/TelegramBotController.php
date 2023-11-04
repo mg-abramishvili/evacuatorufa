@@ -60,7 +60,7 @@ class TelegramBotController extends Controller
 
             $method = 'sendMessage';
             $send_data = [
-                'text'   => $advantages->pluck('name'),
+                'text'   => $advantages->pluck('title'),
             ];
         }
 
