@@ -73,8 +73,12 @@ Route::post('_telegram', [App\Http\Controllers\TelegramBotController::class, 'in
 
 Route::get('/test', function () {
     $advantages = Advantage::all();
+    $adv = [];
+    foreach($advantages as $a) {
+        $adv[] = "✔️" . $a->title;
+    }
 
-    return $advantages->pluck('title');
+    explode($adv, ",");
 });
 
 // ADMIN
