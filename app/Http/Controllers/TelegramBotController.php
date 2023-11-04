@@ -26,7 +26,7 @@ class TelegramBotController extends Controller
                         'resize_keyboard' => true,
                         'keyboard' => [
                             [
-                                ['text' => 'U+1F427 Вызвать эвакуатор'],
+                                ['text' => '\xF0\x9F\x98\xA4 Вызвать эвакуатор'],
                                 ['text' => 'Цены 💵'],
                             ],
                             [
@@ -38,7 +38,7 @@ class TelegramBotController extends Controller
                 ];
                 break;
             
-            case 'U+1F427 Вызвать эвакуатор':
+            case '\xF0\x9F\x98\xA4 Вызвать эвакуатор':
                 $pages = Page::all();
 
                 $method = 'sendMessage';
