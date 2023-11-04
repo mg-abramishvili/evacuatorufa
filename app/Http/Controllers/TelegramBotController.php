@@ -60,7 +60,7 @@ class TelegramBotController extends Controller
             $send_data["reply_markup"]["keyboard"][] = [['text' => "Назад"]];
         }
 
-        elseif($message == '✅ наши преимущества')
+        elseif($message == '✅ преимущества')
         {
             $advantages = Advantage::all();
             $adv = [];
