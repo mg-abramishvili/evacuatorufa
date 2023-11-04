@@ -13,9 +13,9 @@ class TelegramBotController extends Controller
     {
         define('TOKEN', env('TELEGRAM_BOT_TOKEN'));
         
-        $data = json_decode($request->getContent(), TRUE);
+        $data = json_decode($request->getContent(), true);
 
-        file_put_contents(public_path('text.txt'), $data);
+        file_put_contents(public_path('text.txt'), $data['message']);
 
         // $data = $data['callback_query'] ? $data['callback_query'] : $data['message'];
 
