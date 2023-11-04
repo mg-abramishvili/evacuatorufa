@@ -78,7 +78,7 @@ Route::get('/test', function () {
         $adv[] = "✔️" . $a->title;
     }
 
-    explode($adv, ",");
+    implode($adv, ",");
 });
 
 // ADMIN
