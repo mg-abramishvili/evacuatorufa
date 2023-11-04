@@ -105,6 +105,6 @@ class TelegramBotController extends Controller
 
         $response = curl_exec($curl); curl_close($curl);
 
-        $responseJson = json_decode($response);
+        return json_decode($response);
     }
 }
