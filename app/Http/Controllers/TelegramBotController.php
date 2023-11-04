@@ -82,7 +82,7 @@ class TelegramBotController extends Controller
         $this->sendTelegram($method, $send_data);
     }
 
-    public function sendTelegram($method, $data, $headers = [])
+    public function sendTelegram($method, $data)
     {
         define('TOKEN', env('TELEGRAM_BOT_TOKEN'));
 
