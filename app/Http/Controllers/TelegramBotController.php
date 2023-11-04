@@ -18,6 +18,8 @@ class TelegramBotController extends Controller
         $data = $data['callback_query'] ? $data['callback_query'] : $data['message'];
 
         // $message = mb_strtolower(($data['text'] ? $data['text'] : $data['data']),'utf-8');
+        
+        $message = $data['text'] ? $data['text'] : $data['data'];
 
         switch ($message)
         {
