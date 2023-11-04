@@ -24,7 +24,7 @@ class TelegramBotController extends Controller
                 ];
                 break;
 
-            case 'кнопки':
+            case '/start':
                 $method = 'sendMessage';
                 $send_data = [
                     'text'   => 'Вот мои кнопки',
