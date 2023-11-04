@@ -27,9 +27,14 @@ class TelegramBotController extends Controller
                     'keyboard' => [
                         [
                             ['text' => '⚡️ Вызвать эвакуатор'],
-                            ['text' => 'Цены 💵'],
-                            ['text' => '✅ Наши преимущества'],
-                            ['text' => 'Фотогалерея 📸'],
+                        ],
+                        [
+                            ['text' => '💵 Цены'],
+                            ['text' => '✅ Преимущества'],
+                        ],
+                        [
+                            ['text' => '📸 Фотогалерея'],
+                            ['text' => 'ℹ️ О нас'],
                         ]
                     ]
                 ]
@@ -42,7 +47,7 @@ class TelegramBotController extends Controller
 
             $method = 'sendMessage';
             $send_data = [
-                'text'   => 'Какой у вас транспорт?',
+                'text'   => 'Для какого транспорта вам нужен эвакуатор?',
                 'reply_markup' => [
                     'resize_keyboard' => true,
                     'keyboard' => [],
@@ -50,7 +55,7 @@ class TelegramBotController extends Controller
             ];
 
             foreach($pages as $page) {
-                $send_data["reply_markup"]["keyboard"][] = [['text' => "$page->name"]];
+                $send_data["reply_markup"]["keyboard"][] = [['text' => str_replace("Эвакуатор ", "", $page->name)]];
             }
             $send_data["reply_markup"]["keyboard"][] = [['text' => "Назад"]];
         }
