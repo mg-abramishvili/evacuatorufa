@@ -16,72 +16,52 @@ class TelegramBotController extends Controller
 
         $message = mb_strtolower(($data['text'] ? $data['text'] : $data['data']), 'utf-8');
 
-        switch ($message)
+        if($message == '/start')
         {
-            case '/start':
-                $method = 'sendMessage';
-                $send_data = [
-                    'text'   => 'Добро пожаловать в службу эвакуации АвтоВезёт!',
-                    'reply_markup' => [
-                        'resize_keyboard' => true,
-                        'keyboard' => [
-                            [
-                                ['text' => '⚡️ Вызвать эвакуатор'],
-                                ['text' => 'Цены 💵'],
-                                ['text' => 'Наши преимущества ✔️'],
-                                ['text' => 'Фотогалерея 📸'],
-                            ]
+            $method = 'sendMessage';
+            $send_data = [
+                'text'   => 'Добро пожаловать в службу эвакуации АвтоВезёт!',
+                'reply_markup' => [
+                    'resize_keyboard' => true,
+                    'keyboard' => [
+                        [
+                            ['text' => '⚡️ Вызвать эвакуатор'],
+                            ['text' => 'Цены 💵'],
+                            ['text' => 'Наши преимущества ✔️'],
+                            ['text' => 'Фотогалерея 📸'],
                         ]
                     ]
-                ];
-                break;
-            
-            case '⚡️ вызвать эвакуатор':
-                $pages = Page::all();
-
-                $method = 'sendMessage';
-                $send_data = [
-                    'text'   => 'Какой у вас транспорт?',
-                    'reply_markup' => [
-                        'resize_keyboard' => true,
-                        'keyboard' => [],
-                    ]
-                ];
-
-                foreach($pages as $page) {
-                    $send_data["reply_markup"]["keyboard"][] = [['text' => "$page->name"]];
-                }
-                $send_data["reply_markup"]["keyboard"][] = [['text' => "$page->name"]];
-
-                break;
-
-            case 'видео':
-                $method = 'sendVideo';
-                $send_data = [
-                    'video'   => 'https://chastoedov.ru/video/amo.mp4',
-                    'caption' => 'Вот мое видео',
-                    'reply_markup' => [
-                        'resize_keyboard' => true,
-                        'keyboard' => [
-                            [
-                                ['text' => 'Кнопка 1'],
-                                ['text' => 'Кнопка 2'],
-                            ],
-                            [
-                                ['text' => 'Кнопка 3'],
-                                ['text' => 'Кнопка 4'],
-                            ]
-                        ]
-                    ]
-                ];
-                break;
-
-            default:
-                $method = 'sendMessage';
-                $send_data = [
-                    'text' => ':('
-                ];
+                ]
+            ];
         }
+
+        elseif($message == '⚡️ вызвать эвакуатор')
+        {
+            $pages = Page::all();
+
+            $method = 'sendMessage';
+            $send_data = [
+                'text'   => 'Какой у вас транспорт?',
+                'reply_markup' => [
+                    'resize_keyboard' => true,
+                    'keyboard' => [],
+                ]
+            ];
+
+            foreach($pages as $page) {
+                $send_data["reply_markup"]["keyboard"][] = [['text' => "$page->name"]];
+            }
+            $send_data["reply_markup"]["keyboard"][] = [['text' => "$page->name"]];
+        }
+
+        else
+        {
+            $method = 'sendMessage';
+            $send_data = [
+                'text' => 'Я вас, к сожалению, не понимаю. ☹️ Попробуйте воспользоваться кнопочным меню. Если меню скрыто, нажмите иконку 🎛 в правом нижнем углу. Чтобы обновить бота, нажмите сюда /start'
+            ];
+        }
+        
 
         $send_data['chat_id'] = $data['chat']['id'];
 
