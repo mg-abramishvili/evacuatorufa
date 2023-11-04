@@ -47,9 +47,9 @@ class TelegramBotController extends Controller
                         'keyboard' => [],
                     ]
                 ];
-                
+
                 foreach($pages as $page) {
-                    $send_data["reply_markup"]["keyboard"] = ['text' => $page->name ];
+                    $send_data["reply_markup"]["keyboard"][] = ['text' => $page->name ];
                 }
 
                 break;
