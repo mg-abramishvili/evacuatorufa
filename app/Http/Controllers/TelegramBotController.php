@@ -78,33 +78,27 @@ class TelegramBotController extends Controller
         $this->sendTelegram($method, $send_data);
     }
 
-    public function sendTelegram($method, $send_data)
+    public function sendTelegram($method, $send_data, $headers = [])
     {
         // file_put_contents(public_path('text.txt'), '$send_data: '.print_r($send_data, 1)."\n", FILE_APPEND);
         
         define('TOKEN', env('TELEGRAM_BOT_TOKEN'));
 
-        $url = "https://api.telegram.org/bot";
-        $url .= TOKEN;
-        $url .= "/" . $method;
-        $url .= "?chat_id=";
-        $url .= $send_data["chat_id"];
-        $url .= "&text=";
-        $url .= urlencode($send_data["text"]);
+        $curl = curl_init();
 
-        $curl = curl_init($url);
-        curl_setopt($curl, CURLOPT_URL, $url);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt_array($curl, [
+            CURLOPT_POST => 1,
+            CURLOPT_HEADER => 0,
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_URL => 'https://api.telegram.org/bot' . TOKEN . '/' . $method,
+            CURLOPT_POSTFIELDS => json_encode($send_data),
+            CURLOPT_HTTPHEADER => array_merge(array("Content-Type: application/json"), $headers)
+        ]);   
+        
+        $result = curl_exec($curl);
 
-        $headers = array(
-            "Accept: application/json",
-        );
-        curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
-        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+        curl_close($curl);
 
-        $response = curl_exec($curl); curl_close($curl);
-
-        return json_decode($response);
+        return (json_decode($result, 1) ? json_decode($result, 1) : $result);
     }
 }
