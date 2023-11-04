@@ -92,8 +92,6 @@ class TelegramBotController extends Controller
         $url .= "&text=";
         $url .= $send_data["text"];
 
-        return file_put_contents(public_path('text.txt'), '$url: '.print_r($url, 1)."\n", FILE_APPEND);
-
         $curl = curl_init($url);
         curl_setopt($curl, CURLOPT_URL, $url);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
