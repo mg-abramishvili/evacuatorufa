@@ -16,7 +16,7 @@ class TelegramBotController extends Controller
 
         $message = mb_strtolower(($data['text'] ? $data['text'] : $data['data']), 'utf-8');
 
-        if($message == '/start')
+        if($message == '/start' || $message == 'назад')
         {
             $method = 'sendMessage';
             $send_data = [
@@ -51,7 +51,7 @@ class TelegramBotController extends Controller
             foreach($pages as $page) {
                 $send_data["reply_markup"]["keyboard"][] = [['text' => "$page->name"]];
             }
-            $send_data["reply_markup"]["keyboard"][] = [['text' => "$page->name"]];
+            $send_data["reply_markup"]["keyboard"][] = [['text' => "Назад"]];
         }
 
         else
