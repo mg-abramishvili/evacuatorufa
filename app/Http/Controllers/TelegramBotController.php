@@ -17,7 +17,7 @@ class TelegramBotController extends Controller
         
         // file_put_contents(public_path('text.txt'), '$data: '.print_r($data, 1)."\n", FILE_APPEND);
 
-        file_put_contents(public_path('text.txt'), '$message: '.print_r($data['message'], 1)."\n", FILE_APPEND);
+        file_put_contents(public_path('text.txt'), '$message: '.print_r($data, 1)."\n", FILE_APPEND);
 
         // switch ($message)
         // {
