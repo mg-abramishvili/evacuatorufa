@@ -13,15 +13,15 @@ class TelegramBotController extends Controller
     {
         define('TOKEN', env('TELEGRAM_BOT_TOKEN'));
         
-        $data = json_decode($request->getContent(), true);
+        $data = $request->getContent();
         
-        // file_put_contents(public_path('text.txt'), '$data: '.print_r($data, 1)."\n", FILE_APPEND);
+        file_put_contents(public_path('text.txt'), '$data: '.print_r($data, 1)."\n", FILE_APPEND);
 
-        $message = $data['text'] ? $data['text'] : $data['data'];
+        // $message = $data['text'] ? $data['text'] : $data['data'];
         
         // $message = $data['text'] ? $data['text'] : $data['data'];
 
-        file_put_contents(public_path('text.txt'), '$message: '.print_r($message, 1)."\n", FILE_APPEND);
+        // file_put_contents(public_path('text.txt'), '$message: '.print_r($message, 1)."\n", FILE_APPEND);
 
         // switch ($message)
         // {
