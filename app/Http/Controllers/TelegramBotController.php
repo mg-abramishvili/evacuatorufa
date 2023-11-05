@@ -16,16 +16,16 @@ class TelegramBotController extends Controller
         if($request->callback_query && isset($request->callback_query))
         {
             $messageData = $request->callback_query;
+            $message = mb_strtolower($messageData['data'], 'utf-8');
         }
         else
         {
             $messageData = $request->message;
+            $message = mb_strtolower($messageData['text'], 'utf-8');
         }
 
         file_put_contents(public_path('text.txt'), "");
         file_put_contents(public_path('text.txt'), print_r($messageData, 1)."\n", FILE_APPEND);
-        
-        $message = mb_strtolower(($data['text'] ? $data['text'] : $data['data']), 'utf-8');
 
         if($message == '/start' || $message == 'назад')
         {
@@ -126,7 +126,7 @@ class TelegramBotController extends Controller
         }
         
 
-        $send_data['chat_id'] = $data['chat']['id'];
+        $send_data['chat_id'] = $messageData['chat']['id'];
 
         $this->sendTelegram($method, $send_data);
     }
