@@ -92,6 +92,14 @@ class TelegramBotController extends Controller
             ];
         }
 
+        elseif($message == 'evakuator-dlya-legkovogo-avto')
+        {
+            $method = 'sendMessage';
+            $send_data = [
+                'text'   => 'По какому адресу подать эвакуатор?',
+            ];
+        }
+
         else
         {
             $method = 'sendMessage';
