@@ -15,16 +15,16 @@ class TelegramBotController extends Controller
     {
         if($request->callback_query && isset($request->callback_query))
         {
-            $message = $request->callback_query;
+            $messageData = $request->callback_query;
         }
         else
         {
-            $message = $request->message;
+            $messageData = $request->message;
         }
 
         file_put_contents(public_path('text.txt'), "");
-        file_put_contents(public_path('text.txt'), print_r($message, 1)."\n", FILE_APPEND);
-
+        file_put_contents(public_path('text.txt'), print_r($messageData, 1)."\n", FILE_APPEND);
+        
         $message = mb_strtolower(($data['text'] ? $data['text'] : $data['data']), 'utf-8');
 
         if($message == '/start' || $message == 'назад')
