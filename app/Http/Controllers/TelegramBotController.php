@@ -109,17 +109,17 @@ class TelegramBotController extends Controller
         ) {
             $page = Page::where('id', str_replace("page_", "", $message))->first();
 
-            if($page === null) {
+            if($page) {
+                $method = 'sendMessage';
+                $sendData = [
+                    'text'   => 'По какому адресу подать ' . $page->name . '?',
+                ];
+            } else {
                 $method = 'sendMessage';
                 $sendData = [
                     'text' => 'Я вас, к сожалению, не понимаю. ☹️ Попробуйте воспользоваться кнопочным меню. Если меню скрыто, нажмите иконку 🎛 в правом нижнем углу. Чтобы обновить бота, нажмите сюда /start'
                 ];
             }
-
-            $method = 'sendMessage';
-            $sendData = [
-                'text'   => 'По какому адресу подать ' . $page->name . '?',
-            ];
         }
 
         else
