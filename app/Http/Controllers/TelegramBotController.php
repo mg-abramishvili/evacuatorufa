@@ -64,8 +64,12 @@ class TelegramBotController extends Controller
                     'inline_keyboard' => [
                         [
                             [
-                                'text' => 'Test',
+                                'text' => 'Test 1',
                                 'callback_data' => 'test_1',
+                            ],
+                            [
+                                'text' => 'Test 2',
+                                'callback_data' => 'test_2',
                             ],
                         ]
                     ],
@@ -109,13 +113,13 @@ class TelegramBotController extends Controller
             ];
         }
 
-        // elseif($message == 'test_1')
-        // {
-        //     $method = 'sendMessage';
-        //     $send_data = [
-        //         'text'   => 'По какому адресу подать эвакуатор?',
-        //     ];
-        // }
+        elseif($message == 'test_1')
+        {
+            $method = 'sendMessage';
+            $send_data = [
+                'text'   => 'По какому адресу подать эвакуатор?',
+            ];
+        }
 
         else
         {
