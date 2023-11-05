@@ -53,7 +53,7 @@ class TelegramBotController extends Controller
                 'reply_markup' => [
                     'inline_keyboard' => [
                         [
-                            ['text' => 'Test', 'callback_data' => 'test_1']
+                            ['text' => 'Test', 'callback_data' => 'test_1'],
                         ]
                     ],
                 ]
