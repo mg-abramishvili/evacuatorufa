@@ -41,7 +41,7 @@ class TelegramBotController extends Controller
             ];
         }
 
-        elseif($message == '⚡️ вызвать эвакуатор')
+        elseif(str_contains($message, 'вызвать эвакуатор'))
         {
             $pages = Page::all();
 
@@ -58,6 +58,20 @@ class TelegramBotController extends Controller
                 $send_data["reply_markup"]["keyboard"][] = [['text' => str_replace("Эвакуатор ", "", $page->name)]];
             }
             $send_data["reply_markup"]["keyboard"][] = [['text' => "Назад"]];
+        }
+
+        elseif($message == '💵 цены' || $message == '💵 цены')
+        {
+            $advantages = Advantage::all();
+            $adv = [];
+            foreach($advantages as $a) {
+                $adv[] = "✅ " . $a->title;
+            }
+
+            $method = 'sendMessage';
+            $send_data = [
+                'text'   => implode("\n\n", $adv),
+            ];
         }
 
         elseif($message == '✅ преимущества')
