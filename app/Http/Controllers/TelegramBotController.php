@@ -62,17 +62,21 @@ class TelegramBotController extends Controller
             $send_data["reply_markup"]["keyboard"][] = [['text' => "Назад"]];
         }
 
-        elseif($message == '💵 цены' || $message == '💵 цены')
-        {
-            $advantages = Advantage::all();
-            $adv = [];
-            foreach($advantages as $a) {
-                $adv[] = "✅ " . $a->title;
+        elseif(
+            str_contains($message, 'цена') ||
+            str_contains($message, 'цены') ||
+            str_contains($message, 'стоить') ||
+            str_contains($message, 'стоимость')
+        ) {
+            $pages = Page::all();
+            $pgs = [];
+            foreach($pages as $p) {
+                $pgs[] = "✅ " . $p->name . " от " . $p->price . "₽";
             }
 
             $method = 'sendMessage';
             $send_data = [
-                'text'   => implode("\n\n", $adv),
+                'text'   => implode("\n\n", $pgs),
             ];
         }
 
