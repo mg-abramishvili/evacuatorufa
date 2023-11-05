@@ -17,11 +17,13 @@ class TelegramBotController extends Controller
         {
             $messageData = $request->callback_query;
             $message = mb_strtolower($messageData['data'], 'utf-8');
+            $chatID = $messageData['message']['chat']['id'];
         }
         else
         {
             $messageData = $request->message;
             $message = mb_strtolower($messageData['text'], 'utf-8');
+            $chatID = $messageData['chat']['id'];
         }
 
         file_put_contents(public_path('text.txt'), "");
