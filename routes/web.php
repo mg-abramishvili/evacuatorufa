@@ -68,6 +68,15 @@ Route::get('/otzyvy', function () {
 
 Route::post('_leads', [App\Http\Controllers\LeadController::class, 'store']);
 
+// SITEMAP
+Route::get('/sitemap.xml', function () {
+    $pages = Page::all();
+
+    return response()->view('sitemap', [
+        'pages' => $pages,
+    ])->header('Content-Type', 'text/xml');
+});
+
 // TELEGRAM BOT
 Route::post('_telegram', [App\Http\Controllers\TelegramBotController::class, 'index']);
 

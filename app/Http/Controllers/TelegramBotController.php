@@ -71,7 +71,7 @@ class TelegramBotController extends Controller
             $pages = Page::all();
             $pgs = [];
             foreach($pages as $p) {
-                $pgs[] = "✅ " . $p->name . " от " . $p->price . "₽";
+                $pgs[] = "💵 " . $p->name . " от " . $p->price . "₽";
             }
 
             $method = 'sendMessage';
