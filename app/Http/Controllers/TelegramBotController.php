@@ -96,7 +96,7 @@ class TelegramBotController extends Controller
             ];
         }
 
-        elseif($message == 'evakuator-dlya-legkovogo-avto')
+        elseif($message == 'test_1')
         {
             $method = 'sendMessage';
             $send_data = [
@@ -139,8 +139,8 @@ class TelegramBotController extends Controller
 
         curl_close($curl);
 
-        file_put_contents(public_path('text.txt'), "");
-        file_put_contents(public_path('text.txt'), print_r(json_decode($result, 1) ? json_decode($result, 1) : $result)."\n", FILE_APPEND);
+        // file_put_contents(public_path('text.txt'), "");
+        // file_put_contents(public_path('text.txt'), print_r(json_decode($result, 1) ? json_decode($result, 1) : $result)."\n", FILE_APPEND);
 
         return (json_decode($result, 1) ? json_decode($result, 1) : $result);
     }
