@@ -25,7 +25,7 @@ class TelegramBotController extends Controller
         }
 
         file_put_contents(public_path('text.txt'), "");
-        file_put_contents(public_path('text.txt'), print_r($messageData, 1)."\n", FILE_APPEND);
+        file_put_contents(public_path('text.txt'), print_r($message, 1)."\n", FILE_APPEND);
 
         if($message == '/start' || $message == 'назад')
         {
