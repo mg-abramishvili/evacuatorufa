@@ -67,11 +67,13 @@ class TelegramBotController extends Controller
                                 'text' => 'Test 1',
                                 'callback_data' => 'test_1',
                             ],
+                        ],
+                        [
                             [
                                 'text' => 'Test 2',
                                 'callback_data' => 'test_2',
                             ],
-                        ]
+                        ],
                     ],
                 ]
             ];
