@@ -30,7 +30,7 @@ class TelegramBotController extends Controller
         if($message == '/start' || $message == 'назад')
         {
             $method = 'sendMessage';
-            $send_data = [
+            $sendData = [
                 'text'   => 'Добро пожаловать в службу эвакуации АвтоВезёт!',
                 'reply_markup' => [
                     'resize_keyboard' => true,
@@ -58,7 +58,7 @@ class TelegramBotController extends Controller
             $pages = Page::all();
 
             $method = 'sendMessage';
-            $send_data = [
+            $sendData = [
                 'text'   => 'Для какого транспорта вам нужен эвакуатор?',
                 'reply_markup' => [
                     'inline_keyboard' => [
@@ -77,7 +77,7 @@ class TelegramBotController extends Controller
             ];
 
             // foreach($pages as $page) {
-            //     $send_data["reply_markup"]["inline_keyboard"][] = [['text' => str_replace("Эвакуатор ", "", $page->name), 'callback_data' => "page_" . $page->id ]];
+            //     $sendData["reply_markup"]["inline_keyboard"][] = [['text' => str_replace("Эвакуатор ", "", $page->name), 'callback_data' => "page_" . $page->id ]];
             // }
         }
 
@@ -94,7 +94,7 @@ class TelegramBotController extends Controller
             }
 
             $method = 'sendMessage';
-            $send_data = [
+            $sendData = [
                 'text'   => implode("\n\n", $pgs),
             ];
         }
@@ -108,7 +108,7 @@ class TelegramBotController extends Controller
             }
 
             $method = 'sendMessage';
-            $send_data = [
+            $sendData = [
                 'text'   => implode("\n\n", $adv),
             ];
         }
@@ -116,7 +116,7 @@ class TelegramBotController extends Controller
         elseif($message == 'test_1')
         {
             $method = 'sendMessage';
-            $send_data = [
+            $sendData = [
                 'text'   => 'По какому адресу подать эвакуатор?',
             ];
         }
@@ -124,20 +124,20 @@ class TelegramBotController extends Controller
         else
         {
             $method = 'sendMessage';
-            $send_data = [
+            $sendData = [
                 'text' => 'Я вас, к сожалению, не понимаю. ☹️ Попробуйте воспользоваться кнопочным меню. Если меню скрыто, нажмите иконку 🎛 в правом нижнем углу. Чтобы обновить бота, нажмите сюда /start'
             ];
         }
         
 
-        $send_data['chat_id'] = $messageData['chat']['id'];
+        $sendData['chat_id'] = $messageData['chat']['id'];
 
-        $this->sendTelegram($method, $send_data);
+        $this->sendTelegram($method, $sendData);
     }
 
-    public function sendTelegram($method, $send_data, $headers = [])
+    public function sendTelegram($method, $sendData, $headers = [])
     {
-        // file_put_contents(public_path('text.txt'), '$send_data: '.print_r($send_data, 1)."\n", FILE_APPEND);
+        // file_put_contents(public_path('text.txt'), '$sendData: '.print_r($sendData, 1)."\n", FILE_APPEND);
         
         define('TOKEN', env('TELEGRAM_BOT_TOKEN'));
 
@@ -148,7 +148,7 @@ class TelegramBotController extends Controller
             CURLOPT_HEADER => 0,
             CURLOPT_RETURNTRANSFER => 1,
             CURLOPT_URL => 'https://api.telegram.org/bot' . TOKEN . '/' . $method,
-            CURLOPT_POSTFIELDS => json_encode($send_data),
+            CURLOPT_POSTFIELDS => json_encode($sendData),
             CURLOPT_HTTPHEADER => array_merge(array("Content-Type: application/json"), $headers)
         ]);   
         
