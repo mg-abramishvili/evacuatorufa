@@ -71,9 +71,11 @@ Route::post('_leads', [App\Http\Controllers\LeadController::class, 'store']);
 // SITEMAP
 Route::get('/sitemap.xml', function () {
     $pages = Page::all();
+    $latestUpdatedPage = Page::orderBy('updated_at', 'desc')->first();
 
     return response()->view('sitemap', [
         'pages' => $pages,
+        'latestUpdatedPage' => $latestUpdatedPage,
     ])->header('Content-Type', 'text/xml');
 });
 
