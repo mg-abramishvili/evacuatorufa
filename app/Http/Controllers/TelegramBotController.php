@@ -52,14 +52,14 @@ class TelegramBotController extends Controller
                 'text'   => 'Для какого транспорта вам нужен эвакуатор?',
                 'reply_markup' => [
                     'resize_keyboard' => true,
-                    'keyboard' => [],
+                    'inline_keyboard' => [],
                 ]
             ];
 
             foreach($pages as $page) {
-                $send_data["reply_markup"]["keyboard"][] = [['text' => str_replace("Эвакуатор ", "", $page->name)]];
+                $send_data["reply_markup"]["inline_keyboard"][] = [['text' => str_replace("Эвакуатор ", "", $page->name)]];
             }
-            $send_data["reply_markup"]["keyboard"][] = [['text' => "Назад"]];
+            $send_data["reply_markup"]["inline_keyboard"][] = [['text' => "Назад"]];
         }
 
         elseif(
