@@ -61,6 +61,7 @@ class TelegramBotController extends Controller
             $sendData = [
                 'text'   => 'Для какого транспорта вам нужен эвакуатор?',
                 'reply_markup' => [
+                    'resize_keyboard' => true,
                     'inline_keyboard' => [
                         [
                             [
