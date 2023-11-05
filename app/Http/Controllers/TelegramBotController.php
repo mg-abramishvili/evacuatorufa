@@ -41,8 +41,10 @@ class TelegramBotController extends Controller
             ];
         }
 
-        elseif(str_contains($message, 'вызвать эвакуатор'))
-        {
+        elseif(
+            str_contains($message, 'вызвать эвакуатор') ||
+            str_contains($message, 'нужен эвакуатор')
+        ) {
             $pages = Page::all();
 
             $method = 'sendMessage';
