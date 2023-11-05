@@ -109,7 +109,7 @@ class TelegramBotController extends Controller
         ) {
             $method = 'sendMessage';
             $sendData = [
-                'text'   => 'По какому адресу подать эвакуатор?',
+                'text'   => 'По какому адресу подать эвакуатор ' . $message . '?',
             ];
         }
 
