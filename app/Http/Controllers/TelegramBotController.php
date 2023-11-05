@@ -15,6 +15,9 @@ class TelegramBotController extends Controller
     {
         $data = $request->callback_query ? $request->callback_query : $request->message;
 
+        file_put_contents(public_path('text.txt'), "");
+        file_put_contents(public_path('text.txt'), print_r($request->callback_query, 1)."\n", FILE_APPEND);
+
         $message = mb_strtolower(($data['text'] ? $data['text'] : $data['data']), 'utf-8');
 
         if($message == '/start' || $message == 'назад')
