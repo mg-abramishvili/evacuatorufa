@@ -8,7 +8,7 @@
 </url>
 @foreach ($pages as $page)
     <url>
-        <loc>{{ url('/') }}/{{ $page->slug }}/</loc>
+        <loc>{{ url('/') }}/p/{{ $page->slug }}/</loc>
         <lastmod>{{ $page->updated_at->tz('UTC')->toAtomString() }}</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
