@@ -17,9 +17,6 @@ class TelegramBotController extends Controller
 
         $message = mb_strtolower(($data['text'] ? $data['text'] : $data['data']), 'utf-8');
 
-        file_put_contents(public_path('text.txt'), "");
-        file_put_contents(public_path('text.txt'), print_r($data, 1)."\n", FILE_APPEND);
-
         if($message == '/start' || $message == 'назад')
         {
             $method = 'sendMessage';
@@ -53,13 +50,13 @@ class TelegramBotController extends Controller
             $method = 'sendMessage';
             $send_data = [
                 'text'   => 'Для какого транспорта вам нужен эвакуатор?',
-                'reply_markup' => json_encode([
+                'reply_markup' => [
                     'inline_keyboard' => [
                         [
                             ['text' => 'Test', 'callback_data' => 'test_1']
                         ]
                     ],
-                ])
+                ]
             ];
 
             // foreach($pages as $page) {
@@ -141,6 +138,9 @@ class TelegramBotController extends Controller
         $result = curl_exec($curl);
 
         curl_close($curl);
+
+        file_put_contents(public_path('text.txt'), "");
+        file_put_contents(public_path('text.txt'), print_r(json_decode($result, 1) ? json_decode($result, 1) : $result)."\n", FILE_APPEND);
 
         return (json_decode($result, 1) ? json_decode($result, 1) : $result);
     }
