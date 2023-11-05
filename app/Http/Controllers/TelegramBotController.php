@@ -63,26 +63,13 @@ class TelegramBotController extends Controller
             $sendData = [
                 'text'   => 'Для какого транспорта вам нужен эвакуатор?',
                 'reply_markup' => [
-                    'inline_keyboard' => [
-                        [
-                            [
-                                'text' => 'Test 1',
-                                'callback_data' => 'test_1',
-                            ],
-                        ],
-                        [
-                            [
-                                'text' => 'Test 2',
-                                'callback_data' => 'test_2',
-                            ],
-                        ],
-                    ],
+                    'inline_keyboard' => [],
                 ]
             ];
 
-            // foreach($pages as $page) {
-            //     $sendData["reply_markup"]["inline_keyboard"][] = [['text' => str_replace("Эвакуатор ", "", $page->name), 'callback_data' => "page_" . $page->id ]];
-            // }
+            foreach($pages as $page) {
+                $sendData["reply_markup"]["inline_keyboard"][] = [['text' => str_replace("Эвакуатор ", "", $page->name), 'callback_data' => "page_" . $page->id ]];
+            }
         }
 
         elseif(
@@ -117,8 +104,9 @@ class TelegramBotController extends Controller
             ];
         }
 
-        elseif($message == 'test_1')
-        {
+        elseif(
+            str_contains($message, 'page_')
+        ) {
             $method = 'sendMessage';
             $sendData = [
                 'text'   => 'По какому адресу подать эвакуатор?',
