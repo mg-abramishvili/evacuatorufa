@@ -133,8 +133,7 @@ class TelegramBotController extends Controller
             ];
         }
         
-
-        $sendData['chat_id'] = $messageData['chat']['id'];
+        $sendData['chat_id'] = $chatID;
 
         $this->sendTelegram($method, $sendData);
     }
