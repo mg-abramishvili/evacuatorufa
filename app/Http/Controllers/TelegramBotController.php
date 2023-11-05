@@ -109,13 +109,13 @@ class TelegramBotController extends Controller
             ];
         }
 
-        elseif($message == 'test_1')
-        {
-            $method = 'sendMessage';
-            $send_data = [
-                'text'   => 'По какому адресу подать эвакуатор?',
-            ];
-        }
+        // elseif($message == 'test_1')
+        // {
+        //     $method = 'sendMessage';
+        //     $send_data = [
+        //         'text'   => 'По какому адресу подать эвакуатор?',
+        //     ];
+        // }
 
         else
         {
