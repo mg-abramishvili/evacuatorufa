@@ -17,6 +17,8 @@ class TelegramBotController extends Controller
 
         $message = mb_strtolower(($data['text'] ? $data['text'] : $data['data']), 'utf-8');
 
+        file_put_contents(public_path('text.txt'), print_r($data, 1)."\n", FILE_APPEND);
+
         if($message == '/start' || $message == 'назад')
         {
             $method = 'sendMessage';
