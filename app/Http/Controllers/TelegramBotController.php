@@ -207,12 +207,14 @@ class TelegramBotController extends Controller
                 'reply_markup' => [
                     'inline_keyboard' => [
                         [
+                            [
                             'text' => 'Да, подтверждаю!',
                             'callback_data' => 'your_order_yes',
                         ],
                         [
                             'text' => 'Отменить заявку',
                             'callback_data' => 'your_order_no',
+                        ]
                         ]
                     ],
                 ]
