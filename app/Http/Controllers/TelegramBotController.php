@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Lead;
 use App\Models\Page;
 use App\Models\Advantage;
+use App\Models\TelegramBotLog;
 use App\Mail\LeadMail;
 use Illuminate\Support\Facades\Mail;
 
@@ -26,12 +27,12 @@ class TelegramBotController extends Controller
             $chatID = $messageData['chat']['id'];
         }
 
-        file_put_contents(public_path('text.txt'), "");
-        file_put_contents(public_path('text.txt'), print_r($messageData, 1)."\n", FILE_APPEND);
+        // file_put_contents(public_path('text.txt'), "");
+        // file_put_contents(public_path('text.txt'), print_r($messageData, 1)."\n", FILE_APPEND);
 
-        $address = '';
-        $tel = '';
-        $transport = '';
+        $telegramBotLog - TelegramBotLog::firstOrCreate(
+            ['chat_id' => $chatID],
+        );
 
         if($message == '/start' || $message == 'назад')
         {
@@ -119,7 +120,8 @@ class TelegramBotController extends Controller
                     'text'   => 'По какому адресу подать ' . str_replace("Эвакуатор", "эвакуатор", $page->name) . '?',
                 ];
 
-                $transport = $page->name;
+                $telegramBotLog->transport = $page->name;
+                $telegramBotLog->save();
             } else {
                 $method = 'sendMessage';
                 $sendData = [
