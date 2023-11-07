@@ -27,7 +27,11 @@ class TelegramBotController extends Controller
         }
 
         file_put_contents(public_path('text.txt'), "");
-        file_put_contents(public_path('text.txt'), print_r($message, 1)."\n", FILE_APPEND);
+        file_put_contents(public_path('text.txt'), print_r($messageData, 1)."\n", FILE_APPEND);
+
+        $address = '';
+        $tel = '';
+        $transport = '';
 
         if($message == '/start' || $message == 'назад')
         {
@@ -114,6 +118,8 @@ class TelegramBotController extends Controller
                 $sendData = [
                     'text'   => 'По какому адресу подать ' . str_replace("Эвакуатор", "эвакуатор", $page->name) . '?',
                 ];
+
+                $transport = $page->name;
             } else {
                 $method = 'sendMessage';
                 $sendData = [
@@ -187,8 +193,6 @@ class TelegramBotController extends Controller
 
     public function sendTelegram($method, $sendData, $headers = [])
     {
-        // file_put_contents(public_path('text.txt'), '$sendData: '.print_r($sendData, 1)."\n", FILE_APPEND);
-        
         define('TOKEN', env('TELEGRAM_BOT_TOKEN'));
 
         $curl = curl_init();
@@ -205,9 +209,6 @@ class TelegramBotController extends Controller
         $result = curl_exec($curl);
 
         curl_close($curl);
-
-        // file_put_contents(public_path('text.txt'), "");
-        // file_put_contents(public_path('text.txt'), print_r(json_decode($result, 1) ? json_decode($result, 1) : $result)."\n", FILE_APPEND);
 
         return (json_decode($result, 1) ? json_decode($result, 1) : $result);
     }
