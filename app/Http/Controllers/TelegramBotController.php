@@ -206,16 +206,14 @@ class TelegramBotController extends Controller
                 'text'   => "Вы вызываете " . $telegramBotLog->transport . " по адресу " . $telegramBotLog->address . "\n\n Ваш номер телефона: " . $message . "\n\n Всё верно? 🤔",
                 'reply_markup' => [
                     'inline_keyboard' => [
-                        [
-                            [
+                        [[
                             'text' => 'Да, подтверждаю!',
                             'callback_data' => 'your_order_yes',
-                        ],
-                        [
+                        ]],
+                        [[
                             'text' => 'Отменить заявку',
                             'callback_data' => 'your_order_no',
-                        ]
-                        ]
+                        ]]
                     ],
                 ]
             ];
