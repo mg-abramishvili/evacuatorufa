@@ -222,7 +222,7 @@ class TelegramBotController extends Controller
             $telegramBotLog->save();
         }
 
-        if($message == 'да, подтверждаю')
+        elseif($message == 'да, подтверждаю')
         {
             if(isset($telegramBotLog->transport) && isset($telegramBotLog->tel) && isset($telegramBotLog->address)) {
                 $method = 'sendMessage';
