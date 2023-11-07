@@ -203,7 +203,7 @@ class TelegramBotController extends Controller
         {
             $method = 'sendMessage';
             $sendData = [
-                'text'   => "Вы вызываете " . $telegramBotLog->transport . " по адресу " . $telegramBotLog->address . "\n\n Ваш номер телефона: " . $message . "\n\n Всё верно? 🤔",
+                'text'   => "text",
                 'reply_markup' => [
                     'inline_keyboard' => [
                         [
