@@ -112,7 +112,7 @@ class TelegramBotController extends Controller
             if($page) {
                 $method = 'sendMessage';
                 $sendData = [
-                    'text'   => 'По какому адресу подать ' . mb_strtolower($page->name, 'utf-8') . '?',
+                    'text'   => 'По какому адресу подать ' . str_replace("Эвакуатор", "эвакуатор", $page->name) . '?',
                 ];
             } else {
                 $method = 'sendMessage';
