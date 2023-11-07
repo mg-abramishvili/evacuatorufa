@@ -30,7 +30,7 @@ class TelegramBotController extends Controller
         // file_put_contents(public_path('text.txt'), "");
         // file_put_contents(public_path('text.txt'), print_r($messageData, 1)."\n", FILE_APPEND);
 
-        $telegramBotLog - TelegramBotLog::firstOrCreate(
+        $telegramBotLog = TelegramBotLog::firstOrCreate(
             ['chat_id' => $chatID],
         );
 
