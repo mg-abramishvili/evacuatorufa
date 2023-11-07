@@ -203,45 +203,10 @@ class TelegramBotController extends Controller
         {
             $method = 'sendMessage';
             $sendData = [
-                'text'   => "text",
-                'reply_markup' => [
-                    'inline_keyboard' => [
-                        [
-                            'text' => 'Да, подтверждаю!',
-                            'callback_data' => 'your_order_yes',
-                        ],
-                        [
-                            'text' => 'Отменить заявку',
-                            'callback_data' => 'your_order_no',
-                        ]
-                    ],
-                ]
+                'text'   => "Вы вызываете " . $telegramBotLog->transport . " по адресу " . $telegramBotLog->address . "\n\n Ваш номер телефона: " . $telegramBotLog->tel . "\n\n Всё верно? 🤔",
             ];
 
             $telegramBotLog->tel = $message;
-            $telegramBotLog->status = 'yourOrder';
-            $telegramBotLog->save();
-        }
-
-        elseif($telegramBotLog->status && $telegramBotLog->status == 'yourOrder')
-        {
-            $method = 'sendMessage';
-            $sendData = [
-                'text'   => "Вы вызываете " . $telegramBotLog->transport . " по адресу " . $telegramBotLog->address . "\n\n Ваш номер телефона: " . $telegramBotLog->tel . "\n\n Всё верно? 🤔",
-                'reply_markup' => [
-                    'inline_keyboard' => [
-                        [
-                            'text' => 'Да, подтверждаю!',
-                            'callback_data' => 'your_order_yes',
-                        ],
-                        [
-                            'text' => 'Отменить заявку',
-                            'callback_data' => 'your_order_no',
-                        ]
-                    ],
-                ]
-            ];
-            
             $telegramBotLog->status = 'yourOrder';
             $telegramBotLog->save();
         }
