@@ -203,7 +203,7 @@ class TelegramBotController extends Controller
                 'text'   => "Ваш адрес:" . $message,
             ];
 
-            $telegramBotLog->address = $message;
+            $telegramBotLog->tel = $message;
             $telegramBotLog->status = 'yourOrder';
             $telegramBotLog->save();
         }
@@ -226,8 +226,7 @@ class TelegramBotController extends Controller
                     ],
                 ]
             ];
-
-            $telegramBotLog->address = $message;
+            
             $telegramBotLog->status = 'yourOrder';
             $telegramBotLog->save();
         }
