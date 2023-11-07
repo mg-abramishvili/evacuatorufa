@@ -56,6 +56,9 @@ class TelegramBotController extends Controller
                     ]
                 ]
             ];
+
+            $telegramBotLog->status = null;
+            $telegramBotLog->save();
         }
 
         elseif(
@@ -121,6 +124,7 @@ class TelegramBotController extends Controller
                 ];
 
                 $telegramBotLog->transport = $page->name;
+                $telegramBotLog->status = 'enterAddress';
                 $telegramBotLog->save();
             } else {
                 $method = 'sendMessage';
@@ -178,6 +182,17 @@ class TelegramBotController extends Controller
                     ]
                 ]
             ];
+        }
+        
+        elseif($telegramBotLog->status && $telegramBotLog->status == 'enterAddress')
+        {
+            $method = 'sendMessage';
+            $sendData = [
+                'text'   => "Ваш адрес:" . $message,
+            ];
+
+            $telegramBotLog->address = $message;
+            $telegramBotLog->save();
         }
 
         else
