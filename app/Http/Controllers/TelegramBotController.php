@@ -128,6 +128,15 @@ class TelegramBotController extends Controller
             $method = 'sendPhoto';
             $sendData = [
                 'photo' => 'https://evacuatorufa.ru/img/evc01.jpg',
+                'photo' => 'https://evacuatorufa.ru/img/evc02.jpg',
+                'photo' => 'https://evacuatorufa.ru/img/evc03.jpg',
+                'photo' => 'https://evacuatorufa.ru/img/evc04.jpg',
+                'photo' => 'https://evacuatorufa.ru/img/evc05.jpg',
+                'photo' => 'https://evacuatorufa.ru/img/evc06.jpg',
+                'photo' => 'https://evacuatorufa.ru/img/evc07.jpg',
+                'photo' => 'https://evacuatorufa.ru/img/evc08.jpg',
+                'photo' => 'https://evacuatorufa.ru/img/evc09.jpg',
+                'photo' => 'https://evacuatorufa.ru/img/evc10.jpg',
             ];
         }
 
