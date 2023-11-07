@@ -126,7 +126,7 @@ class TelegramBotController extends Controller
             str_contains($message, 'фотогалерея')
         ) {
             $method = 'sendMessage';
-            $send_data = [
+            $sendData = [
                 'text' => 'caption',
             ];
         }
