@@ -122,6 +122,15 @@ class TelegramBotController extends Controller
             }
         }
 
+        elseif(
+            str_contains($message, 'галерея')
+        ) {
+            $method = 'sendPhoto';
+            $send_data = [
+                'video'   => 'https://evacuatorufa.ru/img/evc01.jpg',
+            ];
+        }
+
         else
         {
             $method = 'sendMessage';
