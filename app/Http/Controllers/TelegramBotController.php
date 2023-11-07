@@ -208,7 +208,7 @@ class TelegramBotController extends Controller
                     'resize_keyboard' => true,
                     'keyboard' => [
                         [
-                            ['text' => 'Да, подтверждаю!']
+                            ['text' => 'Да, подтверждаю']
                         ],
                         [
                             ['text' => 'Отменить заявку']
