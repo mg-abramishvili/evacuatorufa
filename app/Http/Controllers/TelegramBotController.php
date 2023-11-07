@@ -128,6 +128,7 @@ class TelegramBotController extends Controller
             $method = 'sendPhoto';
             $send_data = [
                 'photo'   => 'https://evacuatorufa.ru/img/evc01.jpg',
+                'caption' => 'caption',
             ];
         }
 
