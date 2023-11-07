@@ -58,6 +58,9 @@ class TelegramBotController extends Controller
             ];
 
             $telegramBotLog->status = null;
+            $telegramBotLog->transport = null;
+            $telegramBotLog->address = null;
+            $telegramBotLog->tel = null;
             $telegramBotLog->save();
         }
 
