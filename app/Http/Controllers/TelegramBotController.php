@@ -139,6 +139,34 @@ class TelegramBotController extends Controller
                     [
                         'type' => 'photo',
                         'media' => 'https://evacuatorufa.ru/img/evc03.jpg',
+                    ],
+                    [
+                        'type' => 'photo',
+                        'media' => 'https://evacuatorufa.ru/img/evc04.jpg',
+                    ],
+                    [
+                        'type' => 'photo',
+                        'media' => 'https://evacuatorufa.ru/img/evc05.jpg',
+                    ],
+                    [
+                        'type' => 'photo',
+                        'media' => 'https://evacuatorufa.ru/img/evc06.jpg',
+                    ],
+                    [
+                        'type' => 'photo',
+                        'media' => 'https://evacuatorufa.ru/img/evc07.jpg',
+                    ],
+                    [
+                        'type' => 'photo',
+                        'media' => 'https://evacuatorufa.ru/img/evc08.jpg',
+                    ],
+                    [
+                        'type' => 'photo',
+                        'media' => 'https://evacuatorufa.ru/img/evc09.jpg',
+                    ],
+                    [
+                        'type' => 'photo',
+                        'media' => 'https://evacuatorufa.ru/img/evc10.jpg',
                     ]
                 ]
             ];
