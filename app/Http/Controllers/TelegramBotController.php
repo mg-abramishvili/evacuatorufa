@@ -34,7 +34,7 @@ class TelegramBotController extends Controller
             ['chat_id' => $chatID],
         );
 
-        if($message == '/start' || $message == 'назад' || $message = 'отменить заявку')
+        if($message == '/start' || $message == 'назад' || $message == 'отменить заявку')
         {
             $method = 'sendMessage';
             $sendData = [
