@@ -125,9 +125,9 @@ class TelegramBotController extends Controller
         elseif(
             str_contains($message, 'фотогалерея')
         ) {
-            $method = 'sendMessage';
+            $method = 'sendPhoto';
             $sendData = [
-                'text' => 'caption',
+                'photo' => 'https://evacuatorufa.ru/img/evc01.jpg',
             ];
         }
 
