@@ -38,6 +38,11 @@
                     <label class="form-label">Текст "О нас"</label>
                     <ckeditor :editor="editor" v-model="about_text" :config="editorConfig"></ckeditor>
                 </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Текст "Преимущества"</label>
+                    <ckeditor :editor="editor" v-model="advantages_text" :config="editorConfig"></ckeditor>
+                </div>
             </div>
 
             <button @click="save()" class="btn btn-primary mb-4">Сохранить</button>
@@ -58,6 +63,7 @@ export default {
             pagesPrices: [],
             about_text: '',
             prices_text: '',
+            advantages_text: '',
 
             views: {
                 loading: true,
@@ -86,6 +92,7 @@ export default {
 
                 this.about_text = response.data.telegram_bot_data.about_text
                 this.prices_text = response.data.telegram_bot_data.prices_text
+                this.advantages_text = response.data.telegram_bot_data.advantages_text
 
                 this.views.loading = false
             })
@@ -114,10 +121,18 @@ export default {
                 })
             }
 
+            if(!this.advantages_text.length) {
+                return this.$swal({
+                    text: 'Напишите текст преимуществ',
+                    icon: 'error',
+                })
+            }
+
             axios.post('/_admin/telegram-bot-data', {
                 pages: this.pagesPrices,
                 about_text: this.about_text,
                 prices_text: this.prices_text,
+                advantages_text: this.advantages_text,
             })
             .then(response => {
                 this.$router.push({ name: 'Leads'})

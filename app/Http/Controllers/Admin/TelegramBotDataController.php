@@ -28,6 +28,7 @@ class TelegramBotDataController extends Controller
             'pages' => 'required',
             'about_text' => 'required',
             'prices_text' => 'required',
+            'advantages_text' => 'required',
         ]);
 
         if(isset($request->pages))
@@ -44,6 +45,7 @@ class TelegramBotDataController extends Controller
 
         $telegramBotData->about_text = $request->about_text;
         $telegramBotData->prices_text = $request->prices_text;
+        $telegramBotData->advantages_text = $request->advantages_text;
 
         $telegramBotData->save();
     }
