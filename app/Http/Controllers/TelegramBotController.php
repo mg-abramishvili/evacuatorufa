@@ -43,7 +43,7 @@ class TelegramBotController extends Controller
             $sendData = [
                 'text'   => 'Добро пожаловать в службу эвакуации АвтоВезёт!',
                 'reply_markup' => [
-                    'resize_keyboard' => false,
+                    'resize_keyboard' => true,
                     'keyboard' => [
                         [
                             ['text' => '⚡️ Вызвать эвакуатор'],
@@ -139,7 +139,7 @@ class TelegramBotController extends Controller
                 $sendData = [
                     'text'   => 'По какому адресу подать ' . str_replace("Эвакуатор", "эвакуатор", $page->name) . '?',
                     'reply_markup' => [
-                        'resize_keyboard' => false,
+                        'resize_keyboard' => true,
                         'keyboard' => [
                             [
                                 ['text' => 'Отмена']
@@ -215,7 +215,7 @@ class TelegramBotController extends Controller
             $sendData = [
                 'text'   => "Ваш номер телефона?",
                 'reply_markup' => [
-                    'resize_keyboard' => false,
+                    'resize_keyboard' => true,
                     'keyboard' => [
                         [
                             ['text' => 'Отмена']
@@ -235,7 +235,7 @@ class TelegramBotController extends Controller
             $sendData = [
                 'text'   => "Вы вызываете " . $telegramBotLog->transport . " по адресу " . $telegramBotLog->address . "\n\n Ваш номер телефона: " . $message . "\n\n Всё верно? 🤔",
                 'reply_markup' => [
-                    'resize_keyboard' => false,
+                    'resize_keyboard' => true,
                     'keyboard' => [
                         [
                             ['text' => 'Да, подтверждаю']
@@ -259,7 +259,7 @@ class TelegramBotController extends Controller
                 $sendData = [
                     'text'   => 'Заявка отправлена! Мы с вами свяжемся. 😊',
                     'reply_markup' => [
-                        'resize_keyboard' => false,
+                        'resize_keyboard' => true,
                         'keyboard' => [
                             [
                                 ['text' => '🎛 Главное меню']
