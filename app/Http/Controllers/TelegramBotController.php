@@ -137,7 +137,7 @@ class TelegramBotController extends Controller
                 $method = 'sendMessage';
                 $sendData = [
                     'text'   => 'По какому адресу подать ' . str_replace("Эвакуатор", "эвакуатор", $page->name) . '?',
-                    'reply_markup' => null,
+                    'reply_markup' => [[]],
                 ];
 
                 $telegramBotLog->transport = $page->name;
