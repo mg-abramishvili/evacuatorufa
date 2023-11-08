@@ -14,7 +14,7 @@
             <div class="box mb-4 p-4">
                 <div v-for="page in pages" class="mb-3">
                     <label class="form-label">{{ page.name }}</label>
-                    <input type="number" min="1" class="form-control" />
+                    <input v-model="pagesPrices.find(p => p.id == page.id).tgprice" type="number" min="1" class="form-control" />
                 </div>
             </div>
             
@@ -56,6 +56,11 @@ export default {
             axios.get('/_admin/telegram-bot-data')
             .then(response => {
                 this.pages = response.data.pages
+
+                response.data.pages.forEach(p => {
+                    this.pagesPrices.push({id: p.id, price: p.tgprice})
+                })
+
                 this.telegram_bot_data = response.data.telegram_bot_data
 
                 this.about_text = response.data.telegram_bot_data.about_text
