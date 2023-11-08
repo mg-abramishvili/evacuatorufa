@@ -9,8 +9,6 @@
 
     <Loader v-if="views.loading" />
 
-    {{ pagesPrices }}
-
     <div v-if="!views.loading" class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center">
         <div class="w-100">
             <div class="box mb-4 p-4">
@@ -31,6 +29,11 @@
             </div>
             
             <div class="box mb-4 p-4">
+                <div class="mb-3">
+                    <label class="form-label">Текст под ценами</label>
+                    <textarea v-model="prices_text" class="form-control"></textarea>
+                </div>
+
                 <div class="mb-3">
                     <label class="form-label">Текст "О нас"</label>
                     <textarea v-model="about_text" class="form-control"></textarea>
@@ -97,7 +100,12 @@ export default {
                 })
             }
 
-            return alert('ok')
+            if(!this.prices_text.length) {
+                return this.$swal({
+                    text: 'Напишите текст под ценами',
+                    icon: 'error',
+                })
+            }
 
             axios.post('/_admin/telegram-bot-data', {
                 pages: this.pagesPrices,
