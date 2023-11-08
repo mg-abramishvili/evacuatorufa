@@ -259,6 +259,16 @@ class TelegramBotController extends Controller
                 $sendData = [
                     'text'   => 'Заявка отправлена! Мы с вами свяжемся. 😊',
                 ];
+
+                $lead = new Lead();
+
+                $lead->name = "Telegram Bot";
+                $lead->tel = $telegramBotLog->tel;
+                $lead->text = "Транспорт: " . $telegramBotLog->transport . "; Адрес: " . $telegramBotLog->address;
+
+                $lead->save();
+
+                // Mail::to('2661184@mail.ru')->send(new LeadMail($lead));
             } else {
                 $method = 'sendMessage';
                 $sendData = [
