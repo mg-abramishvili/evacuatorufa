@@ -37,7 +37,7 @@ class TelegramBotController extends Controller
             ['chat_id' => $chatID],
         );
 
-        if($message == '/start' || $message == 'назад' || $message == 'отменить заявку')
+        if($message == '/start' || $message == 'назад' || $message == 'отмена' || $message == 'отменить заявку')
         {
             $method = 'sendMessage';
             $sendData = [
@@ -137,12 +137,14 @@ class TelegramBotController extends Controller
                 $method = 'sendMessage';
                 $sendData = [
                     'text'   => 'По какому адресу подать ' . str_replace("Эвакуатор", "эвакуатор", $page->name) . '?',
-                    'resize_keyboard' => true,
-                    'keyboard' => [
-                        [
-                            ['text' => 'Отмена']
+                    'reply_markup' => [
+                        'resize_keyboard' => false,
+                        'keyboard' => [
+                            [
+                                ['text' => 'Отмена']
+                            ],
                         ],
-                    ],
+                    ]
                 ];
 
                 $telegramBotLog->transport = $page->name;
