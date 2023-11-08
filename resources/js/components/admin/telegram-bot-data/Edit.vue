@@ -16,8 +16,8 @@
                     <div v-for="page in pages" class="col-12 col-lg-6">
                         <div class="mb-3">
                             <div class="row">
-                                <div class="col-12 col-lg-8">
-                                    <label class="form-label">{{ page.name }}</label>
+                                <div class="col-12 col-lg-8 text-end">
+                                    <label class="form-label m-0">{{ page.name }}</label>
                                 </div>
                                 <div class="col-12 col-lg-4">
                                     <input v-model="pagesPrices.find(p => p.id == page.id).tgprice" type="number" min="1" class="form-control" />
