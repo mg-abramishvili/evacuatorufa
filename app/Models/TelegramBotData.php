@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class TelegramBotData extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'id',
+        'about_text',
+        'prices_text',
+    ];
 }

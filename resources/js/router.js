@@ -8,6 +8,7 @@ import HomePage from './components/admin/homepage/Edit.vue'
 import AboutPage from './components/admin/about-page/Edit.vue'
 import PricelistPage from './components/admin/pricelist-page/Edit.vue'
 import Settings from './components/admin/settings/Edit.vue'
+import TelegramBotData from './components/admin/telegram-bot-data/Edit.vue'
 
 const routes = [
     {
@@ -49,6 +50,11 @@ const routes = [
         path: '/admin/settings',
         name: 'Settings',
         component: Settings
+    },
+    {
+        path: '/admin/telegram-bot-data',
+        name: 'TelegramBotData',
+        component: TelegramBotData
     },
 ];
 

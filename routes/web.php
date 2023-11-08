@@ -124,5 +124,9 @@ Route::delete('_admin/page/{id}/delete', [App\Http\Controllers\Admin\PageControl
 // ADMIN FILE UPLOAD
 Route::post('_admin/file/upload', [App\Http\Controllers\Admin\FileController::class, 'store']);
 
+// TELEGRAM BOT SETTINGS
+Route::get('_admin/telegram-bot-data', [App\Http\Controllers\Admin\TelegramBotDataController::class, 'index'])->middleware(['auth']);
+Route::post('_admin/telegram-bot-data', [App\Http\Controllers\Admin\TelegramBotDataController::class, 'update'])->middleware(['auth']);
+
 // AUTH
 require __DIR__.'/auth.php';
