@@ -276,7 +276,7 @@ class TelegramBotController extends Controller
 
                 $lead->save();
 
-                // Mail::to('2661184@mail.ru')->send(new LeadMail($lead));
+                Mail::to('2661184@mail.ru')->send(new LeadMail($lead));
             } else {
                 $method = 'sendMessage';
                 $sendData = [
