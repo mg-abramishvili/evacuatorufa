@@ -124,7 +124,7 @@ class TelegramBotController extends Controller
         ) {
             $method = 'sendMessage';
             $sendData = [
-                'text'   => $telegramBotData->about_text,
+                'text'   => str_replace(array("<p>", "</p>", "<strong>", "</strong>"), array("", "\n\n", "<b>", "</b>"), $telegramBotData->about_text),
             ];
         }
 
