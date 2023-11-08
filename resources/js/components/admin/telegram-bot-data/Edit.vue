@@ -68,12 +68,11 @@ export default {
             axios.get('/_admin/telegram-bot-data')
             .then(response => {
                 this.pages = response.data.pages
+                this.telegram_bot_data = response.data.telegram_bot_data
 
                 response.data.pages.forEach(p => {
                     this.pagesPrices.push({id: p.id, tgprice: p.tgprice})
                 })
-
-                this.telegram_bot_data = response.data.telegram_bot_data
 
                 this.about_text = response.data.telegram_bot_data.about_text
                 this.prices_text = response.data.telegram_bot_data.prices_text
