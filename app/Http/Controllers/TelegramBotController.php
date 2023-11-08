@@ -137,7 +137,6 @@ class TelegramBotController extends Controller
                 $method = 'sendMessage';
                 $sendData = [
                     'text'   => 'По какому адресу подать ' . str_replace("Эвакуатор", "эвакуатор", $page->name) . '?',
-                    'reply_markup' => [],
                 ];
 
                 $telegramBotLog->transport = $page->name;
@@ -147,7 +146,6 @@ class TelegramBotController extends Controller
                 $method = 'sendMessage';
                 $sendData = [
                     'text' => 'Я вас, к сожалению, не понимаю. ☹️ Попробуйте воспользоваться кнопочным меню. Если меню скрыто, нажмите иконку 🎛 в правом нижнем углу. Чтобы обновить бота, нажмите сюда /start',
-                    'reply_markup' => [],
                 ];
             }
         }
