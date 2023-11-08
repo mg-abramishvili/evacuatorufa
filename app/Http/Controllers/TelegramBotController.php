@@ -193,7 +193,7 @@ class TelegramBotController extends Controller
                     ]
                 ];
 
-                $telegramBotLog->transport = $page ?? $page->name ? : 'для другой техники';
+                $telegramBotLog->transport = $page ? $page->name : 'для другой техники';
                 $telegramBotLog->status = 'enterTel';
                 $telegramBotLog->save();
             } else {
