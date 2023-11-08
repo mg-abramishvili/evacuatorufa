@@ -41,7 +41,7 @@ class TelegramBotController extends Controller
         {
             $method = 'sendMessage';
             $sendData = [
-                'text'   => 'Добро пожаловать в службу эвакуации АвтоВезёт!',
+                'text'   => 'Здравствуйте! \n\nЯ-виртуальный помощник службы эвакуации АвтоВезет.\n\nВы можете связаться с нами по телефону: +7(905)352-97-97\n\nИли воспользоваться кнопками ниже, для этого нажмите нужную вам кнопку.',
                 'reply_markup' => [
                     'resize_keyboard' => true,
                     'keyboard' => [
@@ -62,7 +62,6 @@ class TelegramBotController extends Controller
 
             $telegramBotLog->status = null;
             $telegramBotLog->transport = null;
-            $telegramBotLog->address = null;
             $telegramBotLog->tel = null;
             $telegramBotLog->save();
         }
@@ -130,36 +129,6 @@ class TelegramBotController extends Controller
         }
 
         elseif(
-            str_contains($message, 'page_')
-        ) {
-            $page = Page::where('id', str_replace("page_", "", $message))->first();
-
-            if($page) {
-                $method = 'sendMessage';
-                $sendData = [
-                    'text'   => 'По какому адресу подать ' . str_replace("Эвакуатор", "эвакуатор", $page->name) . '?',
-                    'reply_markup' => [
-                        'resize_keyboard' => true,
-                        'keyboard' => [
-                            [
-                                ['text' => 'Отмена']
-                            ],
-                        ],
-                    ]
-                ];
-
-                $telegramBotLog->transport = $page->name;
-                $telegramBotLog->status = 'enterAddress';
-                $telegramBotLog->save();
-            } else {
-                $method = 'sendMessage';
-                $sendData = [
-                    'text' => 'Я вас, к сожалению, не понимаю. ☹️ Попробуйте воспользоваться кнопочным меню. Если меню скрыто, нажмите иконку 🎛 в правом нижнем углу. Чтобы обновить бота, нажмите сюда /start',
-                ];
-            }
-        }
-
-        elseif(
             str_contains($message, 'фотогалерея')
         ) {
             $method = 'sendMediaGroup';
@@ -208,81 +177,61 @@ class TelegramBotController extends Controller
                 ]
             ];
         }
-        
-        elseif($telegramBotLog->status && $telegramBotLog->status == 'enterAddress')
-        {
-            $method = 'sendMessage';
-            $sendData = [
-                'text'   => "Ваш номер телефона?",
-                'reply_markup' => [
-                    'resize_keyboard' => true,
-                    'keyboard' => [
-                        [
-                            ['text' => 'Отмена']
-                        ],
-                    ],
-                ]
-            ];
 
-            $telegramBotLog->address = $message;
-            $telegramBotLog->status = 'enterTel';
-            $telegramBotLog->save();
+        elseif(
+            str_contains($message, 'page_')
+        ) {
+            $page = Page::where('id', str_replace("page_", "", $message))->first();
+
+            if($page) {
+                $method = 'sendMessage';
+                $sendData = [
+                    'text'   => 'Ваш номер телефона?',
+                    'reply_markup' => [
+                        'resize_keyboard' => true,
+                        'keyboard' => [
+                            [
+                                ['text' => 'Отмена']
+                            ],
+                        ],
+                    ]
+                ];
+
+                $telegramBotLog->transport = $page->name;
+                $telegramBotLog->status = 'enterTel';
+                $telegramBotLog->save();
+            } else {
+                $method = 'sendMessage';
+                $sendData = [
+                    'text' => 'Я вас, к сожалению, не понимаю. ☹️ Попробуйте воспользоваться кнопочным меню. Если меню скрыто, нажмите иконку 🎛 в правом нижнем углу. Чтобы обновить бота, нажмите сюда /start',
+                ];
+            }
         }
 
         elseif($telegramBotLog->status && $telegramBotLog->status == 'enterTel')
         {
             $method = 'sendMessage';
             $sendData = [
-                'text'   => "Вы вызываете " . $telegramBotLog->transport . " по адресу " . $telegramBotLog->address . "\n\n Ваш номер телефона: " . $message . "\n\n Всё верно? 🤔",
+                'text'   => "Заявка отправлена! Мы с вами свяжемся. 😊",
                 'reply_markup' => [
                     'resize_keyboard' => true,
                     'keyboard' => [
                         [
-                            ['text' => 'Да, подтверждаю']
+                            ['text' => 'Главное меню']
                         ],
-                        [
-                            ['text' => 'Отменить заявку']
-                        ]
                     ],
                 ]
             ];
 
-            $telegramBotLog->tel = $message;
-            $telegramBotLog->status = 'yourOrder';
-            $telegramBotLog->save();
-        }
+            $lead = new Lead();
 
-        elseif($message == 'да, подтверждаю')
-        {
-            if(isset($telegramBotLog->transport) && isset($telegramBotLog->tel) && isset($telegramBotLog->address)) {
-                $method = 'sendMessage';
-                $sendData = [
-                    'text'   => 'Заявка отправлена! Мы с вами свяжемся. 😊',
-                    'reply_markup' => [
-                        'resize_keyboard' => true,
-                        'keyboard' => [
-                            [
-                                ['text' => 'Главное меню']
-                            ],
-                        ],
-                    ]
-                ];
+            $lead->name = "Telegram Bot";
+            $lead->tel = $telegramBotLog->tel;
+            $lead->text = $telegramBotLog->transport;
 
-                $lead = new Lead();
+            $lead->save();
 
-                $lead->name = "Telegram Bot";
-                $lead->tel = $telegramBotLog->tel;
-                $lead->text = "Транспорт: " . $telegramBotLog->transport . "; Адрес: " . $telegramBotLog->address;
-
-                $lead->save();
-
-                Mail::to('2661184@mail.ru')->send(new LeadMail($lead));
-            } else {
-                $method = 'sendMessage';
-                $sendData = [
-                    'text'   => 'Что-то пошло не так. ☹️',
-                ];
-            }
+            // Mail::to('2661184@mail.ru')->send(new LeadMail($lead));
         }
 
         else
