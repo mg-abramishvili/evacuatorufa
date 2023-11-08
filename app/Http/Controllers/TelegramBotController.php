@@ -100,7 +100,7 @@ class TelegramBotController extends Controller
 
             $method = 'sendMessage';
             $sendData = [
-                'text'   => implode("\n\n", $pgs) . "\n\n ℹ️ " . str_replace(array("<p>", "</p>", "<strong>", "</strong>"), array("", "\n\n", "<b>", "</b>"), $telegramBotData->prices_text),
+                'text'   => implode("\n\n", $pgs) . "\n\n" . str_replace(array("<p>", "</p>", "<strong>", "</strong>"), array("", "\n\n", "<b>", "</b>"), $telegramBotData->prices_text),
             ];
         }
 
