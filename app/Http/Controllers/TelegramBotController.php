@@ -84,7 +84,7 @@ class TelegramBotController extends Controller
                 $sendData["reply_markup"]["inline_keyboard"][] = [['text' => str_replace("Эвакуатор ", "", $page->name), 'callback_data' => "page_" . $page->id ]];
             }
 
-            $sendData["reply_markup"]["inline_keyboard"][] = [['text' => 'эвакуатор для другой техники', 'callback_data' => "page_99" ]];
+            $sendData["reply_markup"]["inline_keyboard"][] = [['text' => 'для другой техники', 'callback_data' => "page_99" ]];
         }
 
         elseif(
@@ -179,7 +179,7 @@ class TelegramBotController extends Controller
         ) {
             $page = Page::where('id', str_replace("page_", "", $message))->first();
 
-            if($page) {
+            if($page || $message == 'page_99') {
                 $method = 'sendMessage';
                 $sendData = [
                     'text'   => 'Ваш номер телефона?',
@@ -193,7 +193,7 @@ class TelegramBotController extends Controller
                     ]
                 ];
 
-                $telegramBotLog->transport = $page->name;
+                $telegramBotLog->transport = $page ?? $page->name ? : 'для другой техники';
                 $telegramBotLog->status = 'enterTel';
                 $telegramBotLog->save();
             } else {
