@@ -37,7 +37,7 @@ class TelegramBotController extends Controller
             ['chat_id' => $chatID],
         );
 
-        if($message == '/start' || $message == 'назад' || $message == 'отмена' || $message == 'отменить заявку')
+        if($message == '/start' || $message == 'назад' || $message == 'отмена' || $message == 'отменить заявку' || $message = 'главное меню')
         {
             $method = 'sendMessage';
             $sendData = [
@@ -258,6 +258,14 @@ class TelegramBotController extends Controller
                 $method = 'sendMessage';
                 $sendData = [
                     'text'   => 'Заявка отправлена! Мы с вами свяжемся. 😊',
+                    'reply_markup' => [
+                        'resize_keyboard' => false,
+                        'keyboard' => [
+                            [
+                                ['text' => 'Главное меню']
+                            ],
+                        ],
+                    ]
                 ];
 
                 $lead = new Lead();
