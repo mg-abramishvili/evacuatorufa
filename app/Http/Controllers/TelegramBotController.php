@@ -205,6 +205,7 @@ class TelegramBotController extends Controller
             $method = 'sendMessage';
             $sendData = [
                 'text'   => "Ваш номер телефона?",
+                'reply_markup' => []
             ];
 
             $telegramBotLog->address = $message;
