@@ -58,7 +58,7 @@ export default {
                 this.pages = response.data.pages
 
                 response.data.pages.forEach(p => {
-                    this.pagesPrices.push({id: p.id, price: p.tgprice})
+                    this.pagesPrices.push({id: p.id, tgprice: p.tgprice})
                 })
 
                 this.telegram_bot_data = response.data.telegram_bot_data
