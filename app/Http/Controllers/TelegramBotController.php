@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Lead;
 use App\Models\Page;
 use App\Models\Advantage;
+use App\Models\TelegramBotData;
 use App\Models\TelegramBotLog;
 use App\Mail\LeadMail;
 use Illuminate\Support\Facades\Mail;
@@ -29,6 +30,8 @@ class TelegramBotController extends Controller
 
         // file_put_contents(public_path('text.txt'), "");
         // file_put_contents(public_path('text.txt'), print_r($messageData, 1)."\n", FILE_APPEND);
+        
+        $telegramBotData = TelegramBotData::find(1);
 
         $telegramBotLog = TelegramBotLog::firstOrCreate(
             ['chat_id' => $chatID],
@@ -92,17 +95,18 @@ class TelegramBotController extends Controller
             $pages = Page::all();
             $pgs = [];
             foreach($pages as $p) {
-                $pgs[] = "💵 " . $p->name . " от " . $p->price . "₽";
+                $pgs[] = "💵 " . $p->name . " от " . $p->tgprice . "₽";
             }
 
             $method = 'sendMessage';
             $sendData = [
-                'text'   => implode("\n\n", $pgs),
+                'text'   => implode("\n\n", $pgs) . "\n\n" . $telegramBotData->prices_text,
             ];
         }
 
-        elseif($message == '✅ преимущества')
-        {
+        elseif(
+            str_contains($message, 'преимущества')
+        ) {
             $advantages = Advantage::all();
             $adv = [];
             foreach($advantages as $a) {
@@ -112,6 +116,15 @@ class TelegramBotController extends Controller
             $method = 'sendMessage';
             $sendData = [
                 'text'   => implode("\n\n", $adv),
+            ];
+        }
+
+        elseif(
+            str_contains($message, 'о нас')
+        ) {
+            $method = 'sendMessage';
+            $sendData = [
+                'text'   => $telegramBotData->about_text,
             ];
         }
 
