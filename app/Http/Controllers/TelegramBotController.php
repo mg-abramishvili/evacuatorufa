@@ -83,6 +83,8 @@ class TelegramBotController extends Controller
             foreach($pages as $page) {
                 $sendData["reply_markup"]["inline_keyboard"][] = [['text' => str_replace("Эвакуатор ", "", $page->name), 'callback_data' => "page_" . $page->id ]];
             }
+
+            $sendData["reply_markup"]["inline_keyboard"][] = [['text' => 'эвакуатор для другой техники', 'callback_data' => "page_99" ]];
         }
 
         elseif(
