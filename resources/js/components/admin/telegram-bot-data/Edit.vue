@@ -31,12 +31,12 @@
             <div class="box mb-4 p-4">
                 <div class="mb-3">
                     <label class="form-label">Текст под ценами</label>
-                    <textarea v-model="prices_text" class="form-control"></textarea>
+                    <ckeditor :editor="editor" v-model="prices_text" :config="editorConfig"></ckeditor>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Текст "О нас"</label>
-                    <textarea v-model="about_text" class="form-control"></textarea>
+                    <ckeditor :editor="editor" v-model="about_text" :config="editorConfig"></ckeditor>
                 </div>
             </div>
 
@@ -47,6 +47,7 @@
 
 <script>
 import Loader from '../Loader.vue'
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 
 export default {
     data() {
@@ -60,6 +61,12 @@ export default {
 
             views: {
                 loading: true,
+            },
+
+            editor: ClassicEditor,
+            editorData: '',
+            editorConfig: {
+                toolbar: [ 'bold', '|', 'undo', 'redo' ],
             },
         }
     },

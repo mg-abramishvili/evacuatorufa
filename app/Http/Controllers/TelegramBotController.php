@@ -125,6 +125,7 @@ class TelegramBotController extends Controller
             $method = 'sendMessage';
             $sendData = [
                 'text'   => $telegramBotData->about_text,
+                'parse_mode' => 'html',
             ];
         }
 
