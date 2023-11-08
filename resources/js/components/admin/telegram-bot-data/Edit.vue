@@ -9,13 +9,15 @@
 
     <Loader v-if="views.loading" />
 
+    {{ pagesPrices }}
+
     <div v-if="!views.loading" class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center">
         <div class="w-100">
             <div class="box mb-4 p-4">
                 <div class="row">
                     <div v-for="page in pages" class="col-12 col-lg-6">
                         <div class="mb-3">
-                            <div class="row">
+                            <div class="row align-items-center">
                                 <div class="col-12 col-lg-8 text-end">
                                     <label class="form-label m-0">{{ page.name }}</label>
                                 </div>
