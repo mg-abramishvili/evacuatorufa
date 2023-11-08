@@ -110,7 +110,7 @@ class TelegramBotController extends Controller
             $advantages = Advantage::all();
             $adv = [];
             foreach($advantages as $a) {
-                $adv[] = "✅ " . $a->title . $a->text ? $a->text : "";
+                $adv[] = "✅ " . $a->text ? $a->title . " - " . $a->text : $a->title;
             }
 
             $method = 'sendMessage';
