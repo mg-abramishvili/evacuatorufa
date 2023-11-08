@@ -43,7 +43,7 @@ class TelegramBotController extends Controller
             $sendData = [
                 'text'   => 'Добро пожаловать в службу эвакуации АвтоВезёт!',
                 'reply_markup' => [
-                    'resize_keyboard' => true,
+                    'resize_keyboard' => false,
                     'keyboard' => [
                         [
                             ['text' => '⚡️ Вызвать эвакуатор'],
@@ -235,7 +235,7 @@ class TelegramBotController extends Controller
             $sendData = [
                 'text'   => "Вы вызываете " . $telegramBotLog->transport . " по адресу " . $telegramBotLog->address . "\n\n Ваш номер телефона: " . $message . "\n\n Всё верно? 🤔",
                 'reply_markup' => [
-                    'resize_keyboard' => true,
+                    'resize_keyboard' => false,
                     'keyboard' => [
                         [
                             ['text' => 'Да, подтверждаю']
