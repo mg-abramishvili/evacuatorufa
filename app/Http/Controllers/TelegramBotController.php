@@ -262,7 +262,7 @@ class TelegramBotController extends Controller
                         'resize_keyboard' => false,
                         'keyboard' => [
                             [
-                                ['text' => 'Главное меню']
+                                ['text' => '🎛 Главное меню']
                             ],
                         ],
                     ]
