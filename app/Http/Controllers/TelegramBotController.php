@@ -223,6 +223,10 @@ class TelegramBotController extends Controller
                 ]
             ];
 
+            $telegramBotLog->status = 'yourOrder';
+            $telegramBotLog->tel = $message;
+            $telegramBotLog->save();
+
             $lead = new Lead();
 
             $lead->name = "Telegram Bot";
