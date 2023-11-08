@@ -81,21 +81,21 @@ export default {
             })
         },
         save() {
-            if(!this.about_text.length) {
-                return this.$swal({
-                    text: 'Напишите текст О нас',
-                    icon: 'error',
-                })
-            }
-
             this.pagesPrices.forEach(p => {
-                if(!p.tgprice) {
+                if(!p.tgprice || p.tgprice == 0) {
                     return this.$swal({
                         text: 'Укажите цены',
                         icon: 'error',
                     })
                 }
             })
+
+            if(!this.about_text.length) {
+                return this.$swal({
+                    text: 'Напишите текст О нас',
+                    icon: 'error',
+                })
+            }
 
             return alert('ok')
 
