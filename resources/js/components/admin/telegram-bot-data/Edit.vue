@@ -89,7 +89,19 @@ export default {
                 })
             }
 
+            this.pagesPrices.forEach(p => {
+                if(!p.tgprice) {
+                    return this.$swal({
+                        text: 'Укажите цены',
+                        icon: 'error',
+                    })
+                }
+            })
+
+            return alert('ok')
+
             axios.post('/_admin/telegram-bot-data', {
+                pages: this.pagesPrices,
                 about_text: this.about_text,
                 prices_text: this.prices_text,
             })
