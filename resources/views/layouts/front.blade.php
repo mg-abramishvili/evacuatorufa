@@ -34,6 +34,11 @@
                                     <a href="tel:+7{{$settings->tel1}}">+7 @php echo substr($settings->tel1, 0, 3) . ' ' . substr($settings->tel1, 3, 3) . '-' . substr($settings->tel1, 6, 2)  . '-' . substr($settings->tel1, 8, 2) @endphp</a>
                                     <a href="tel:+7{{$settings->tel2}}">+7 @php echo substr($settings->tel2, 0, 3) . ' ' . substr($settings->tel2, 3, 3) . '-' . substr($settings->tel2, 6, 2)  . '-' . substr($settings->tel2, 8, 2) @endphp</a>
                                     <span>Круглосуточно</span>
+
+                                    <a href="" target="_blank" class="header-telegram">
+                                        <img src="/img/tg.svg" alt="Телеграм бот">
+                                        Телеграм-бот
+                                    </a>
                                 </div>
                             </div>
                         </div>

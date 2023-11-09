@@ -189,6 +189,26 @@ header {
     text-shadow: none;
 }
 
+a.header-telegram {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    justify-content: center;
+    margin-top: 10px;
+    
+}
+@media (min-width: 992px) {
+    a.header-telegram {
+        margin-right: 30px;
+        justify-content: flex-end;
+    }
+}
+.header-telegram img {
+    width: 26px;
+    height: 26px;
+    margin-right: 10px;
+}
+
 .title-header {
     margin: 0;
     font-family: 'PT Sans Narrow', sans-serif;
