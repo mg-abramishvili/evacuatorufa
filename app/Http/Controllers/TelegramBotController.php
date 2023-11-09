@@ -170,18 +170,6 @@ class TelegramBotController extends Controller
                         'type' => 'photo',
                         'media' => 'https://evacuatorufa.ru/img/tg/10.jpg',
                     ],
-                    [
-                        'type' => 'photo',
-                        'media' => 'https://evacuatorufa.ru/img/tg/11.jpg',
-                    ],
-                    [
-                        'type' => 'photo',
-                        'media' => 'https://evacuatorufa.ru/img/tg/12.jpg',
-                    ],
-                    [
-                        'type' => 'photo',
-                        'media' => 'https://evacuatorufa.ru/img/tg/13.jpg',
-                    ],
                 ]
             ];
         }
