@@ -132,44 +132,56 @@ class TelegramBotController extends Controller
                 'media' => [
                     [
                         'type' => 'photo',
-                        'media' => 'https://evacuatorufa.ru/img/evc01.jpg',
+                        'media' => 'https://evacuatorufa.ru/img/tg/01.jpg',
                     ],
                     [
                         'type' => 'photo',
-                        'media' => 'https://evacuatorufa.ru/img/evc02.jpg',
+                        'media' => 'https://evacuatorufa.ru/img/tg/02.jpg',
                     ],
                     [
                         'type' => 'photo',
-                        'media' => 'https://evacuatorufa.ru/img/evc03.jpg',
+                        'media' => 'https://evacuatorufa.ru/img/tg/03.jpg',
                     ],
                     [
                         'type' => 'photo',
-                        'media' => 'https://evacuatorufa.ru/img/evc04.jpg',
+                        'media' => 'https://evacuatorufa.ru/img/tg/04.jpg',
                     ],
                     [
                         'type' => 'photo',
-                        'media' => 'https://evacuatorufa.ru/img/evc05.jpg',
+                        'media' => 'https://evacuatorufa.ru/img/tg/05.jpg',
                     ],
                     [
                         'type' => 'photo',
-                        'media' => 'https://evacuatorufa.ru/img/evc06.jpg',
+                        'media' => 'https://evacuatorufa.ru/img/tg/06.jpg',
                     ],
                     [
                         'type' => 'photo',
-                        'media' => 'https://evacuatorufa.ru/img/evc07.jpg',
+                        'media' => 'https://evacuatorufa.ru/img/tg/07.jpg',
                     ],
                     [
                         'type' => 'photo',
-                        'media' => 'https://evacuatorufa.ru/img/evc08.jpg',
+                        'media' => 'https://evacuatorufa.ru/img/tg/08.jpg',
                     ],
                     [
                         'type' => 'photo',
-                        'media' => 'https://evacuatorufa.ru/img/evc09.jpg',
+                        'media' => 'https://evacuatorufa.ru/img/tg/09.jpg',
                     ],
                     [
                         'type' => 'photo',
-                        'media' => 'https://evacuatorufa.ru/img/evc10.jpg',
-                    ]
+                        'media' => 'https://evacuatorufa.ru/img/tg/10.jpg',
+                    ],
+                    [
+                        'type' => 'photo',
+                        'media' => 'https://evacuatorufa.ru/img/tg/11.jpg',
+                    ],
+                    [
+                        'type' => 'photo',
+                        'media' => 'https://evacuatorufa.ru/img/tg/12.jpg',
+                    ],
+                    [
+                        'type' => 'photo',
+                        'media' => 'https://evacuatorufa.ru/img/tg/13.jpg',
+                    ],
                 ]
             ];
         }
